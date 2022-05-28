@@ -713,6 +713,12 @@ select {
 .mt-6 {
   margin-top: 1.5rem;
 }
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
 .block {
   display: block;
 }
@@ -746,6 +752,20 @@ select {
 .h-20 {
   height: 5rem;
 }
+.h-full {
+  height: 100%;
+}
+.h-max {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+.h-40 {
+  height: 10rem;
+}
+.h-auto {
+  height: auto;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -776,6 +796,30 @@ select {
 .w-48 {
   width: 12rem;
 }
+.w-16 {
+  width: 4rem;
+}
+.w-40 {
+  width: 10rem;
+}
+.w-28 {
+  width: 7rem;
+}
+.w-1 {
+  width: 0.25rem;
+}
+.w-2 {
+  width: 0.5rem;
+}
+.w-0\.5 {
+  width: 0.125rem;
+}
+.w-0 {
+  width: 0px;
+}
+.w-px {
+  width: 1px;
+}
 .max-w-xl {
   max-width: 36rem;
 }
@@ -785,8 +829,22 @@ select {
 .max-w-main {
   max-width: 62.5rem;
 }
+.max-w-full {
+  max-width: 100%;
+}
+.max-w-max {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
 .flex-1 {
   flex: 1 1 0%;
+}
+.grow {
+  flex-grow: 1;
+}
+.basis-5 {
+  flex-basis: 1.25rem;
 }
 .origin-top-left {
   transform-origin: top left;
@@ -842,6 +900,18 @@ select {
 }
 .justify-between {
   justify-content: space-between;
+}
+.justify-items-center {
+  justify-items: center;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-5 {
+  gap: 1.25rem;
 }
 .overflow-hidden {
   overflow: hidden;
@@ -920,6 +990,22 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(238 242 255 / var(--tw-bg-opacity));
 }
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+.bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+.bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -928,6 +1014,9 @@ select {
 }
 .p-3 {
   padding: 0.75rem;
+}
+.p-5 {
+  padding: 1.25rem;
 }
 .px-4 {
   padding-left: 1rem;
