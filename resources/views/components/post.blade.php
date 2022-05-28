@@ -10,7 +10,7 @@
 
     <div class="post-info">
         <h3 class="font-bold mb-3">{{ $title }}</h3>
-        <p class="mb-5 line-clamp-3">{{ $description }}{{ $description }}{{ $description }}{{ $description }}</p>
+        <p class="mb-5 line-clamp-3">{{ $description }}</p>
         <small class="text-gray-400 font-semibold">{{ $postedbefore }}</small>
     </div>
     
