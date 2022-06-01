@@ -36,6 +36,8 @@ class CreatePost extends Component
             abort(Response::HTTP_FORBIDDEN);
         }
 
+        session()->flash('message', 'Post successfully added!');
+
         return redirect()->route('posts.index');
     }
 }
