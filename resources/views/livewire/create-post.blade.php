@@ -12,7 +12,6 @@
             <small class="text-red-500 font-semibold">*{{ $message }}</small>
         @enderror 
 
-        <button type="submit" name="submit" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 float-right">Submit</button>
-        
+        <button type="submit" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 float-right">Submit</button>
     </form>
 </div>

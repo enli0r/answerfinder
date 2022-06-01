@@ -13,7 +13,7 @@
             @endauth
 
             @guest
-                <div class="flex justify-center gap-3">
+                <div class="flex justify-center gap-3 text-center">
                     <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 flex-1">Log in</a>
                     <a href="{{ route('register') }}" class="bg-gray-300 text-black text-md font-semibold pointer rounded-xl px-4 py-3 flex-1">Register</a>
                 </div>
@@ -22,15 +22,7 @@
 
         </div>
 
-        <div class="w-175">
-            @foreach ($posts as $post)
-                <x-post :title="$post->title" :description="$post->description" :username="$post->user->name" :postedbefore="$post->created_at->diffForHumans()" />
-            @endforeach
+        <livewire:posts-index />
 
-            <div class="mb-5">
-                {{ $posts->links() }}
-
-            </div>
-        </div>
     </main>
 </x-app-layout>
