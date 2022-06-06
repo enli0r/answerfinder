@@ -12,8 +12,14 @@ class PostsIndex extends Component
 
     public function render()
     {
+        if(request()->order){
+            $order = request()->order;
+        }else{
+            $order = 'ASC';
+        }
+
         return view('livewire.posts-index', [
-            'posts' => Post::orderBy('created_at', 'DESC')->paginate(5),
+            'posts' => Post::orderBy('created_at', $order)->paginate(5),
         ]);
     }
 }

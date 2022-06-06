@@ -1,7 +1,5 @@
 <div class="w-70 rounded-xl bg-white p-6 self-baseline">
     
-
-
     <div class="text-center">
         <h4 class="text-lg font-bold mb-1">Ask a question</h4>
         <p class="text-xs mb-6">Find the answer you are looking for!</p>
