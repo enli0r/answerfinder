@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\Post;
 use Livewire\Component;
 use Illuminate\Http\Response;
-use Illuminate\Http\Client\ResponseSequence;
 
 class CreatePost extends Component
 {

@@ -8,11 +8,9 @@ use Livewire\Component;
 class PostShow extends Component
 {
     public $post;
-    public $comments;
 
-    public function mount(Post $post, $comments){
+    public function mount(Post $post){
         $this->post = $post;
-        $this->comments = $comments;
     }
 
     public function render()
