@@ -10,16 +10,20 @@ class PostsIndex extends Component
 {
     use WithPagination;
 
+    public $sortDirection = 'desc';
+
+    public function sort($sortDirection){
+
+        if($this->sortDirection != $sortDirection)
+        {
+            $this->sortDirection = $sortDirection;
+        }
+    }
+
     public function render()
     {
-        if(request()->order){
-            $order = request()->order;
-        }else{
-            $order = 'ASC';
-        }
-
         return view('livewire.posts-index', [
-            'posts' => Post::orderBy('created_at', $order)->paginate(5),
+            'posts' => Post::orderBy('created_at', $this->sortDirection)->get()
         ]);
     }
 }

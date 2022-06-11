@@ -1,4 +1,4 @@
-<div class="w-70 rounded-xl bg-white p-6 self-baseline">
+<div>
     
     <div class="text-center">
         <h4 class="text-lg font-bold mb-1">Ask a question</h4>

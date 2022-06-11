@@ -11,8 +11,14 @@ class PostController extends Controller
     use WithPagination;
 
     public function index(){
-        return view('posts.index')->with([
-            'posts' => Post::orderBy('created_at', 'DESC')->paginate(5),
+        return view('posts.index');
+    }
+
+    public function show(Post $post){
+
+        return view('posts.show', [
+            'post' => $post,
+            'comments' => $post->comments
         ]);
     }
 }

@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PostFactory extends Factory
+class CommentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,10 +15,12 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+
+
         return [
             'user_id' => rand(1, User::all()->count()),
-            'title' => $this->faker->sentence,
-            'description' => $this->faker->text(400),
+            'post_id' => rand(1, Post::all()->count()),
+            'body' => $this->faker->text(300),
         ];
     }
 }

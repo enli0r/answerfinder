@@ -28,7 +28,7 @@
 
 
         <header class="flex items-center justify-between px-8 py-4">
-            <a href="#">answerfinder</a>
+            <a href="{{ route('posts.index') }}">answerfinder</a>
             <div class="flex items-center justify-between">
                 @if (Route::has('login'))
                     <div class="px-6 py-4">
@@ -56,10 +56,23 @@
                     <img src="https://static.nationalgeographic.rs/Picture/6985/jpeg/Vincent_van_Gogh___National_Gallery_of_Art_681308748" alt="xd" class="w-10 h-10 rounded-full">
                 </a>
             </div>
-        </header>   
+        </header>
+
+        <main class="container flex gap-5 mx-auto max-w-main">  
+
+            <div class="w-70 rounded-xl bg-white p-6 self-baseline">
+                <livewire:create-post />
+            </div>
+
+            
+            <div class="w-175">
+                {{ $slot }}
+            </div>
+            
+        </main>
+
         
         
-        {{ $slot }}
 
         @livewireScripts
     </body>
