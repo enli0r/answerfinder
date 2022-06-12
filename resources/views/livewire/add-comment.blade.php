@@ -44,9 +44,7 @@
                     <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-xl px-4 py-3 flex-1">Sign up</a>
                 </div>
             @endguest
-
-        </div>
-        
+        </div> 
     </div>
         
 

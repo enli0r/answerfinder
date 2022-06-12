@@ -12,6 +12,12 @@ class PostsIndex extends Component
 
     public $sortDirection = 'desc';
 
+    protected $listeners = ['postWasCreated'];
+
+    public function postWasCreated(){
+        $this->resetPage();
+    }
+
     public function sort($sortDirection){
 
         if($this->sortDirection != $sortDirection)

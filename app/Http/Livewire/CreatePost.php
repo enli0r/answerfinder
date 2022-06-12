@@ -37,6 +37,9 @@ class CreatePost extends Component
 
         session()->flash('message', 'Post successfully added!');
 
-        return redirect()->route('posts.index');
+        $this->reset('title');
+        $this->reset('description');
+
+        $this->emit('postWasCreated', 'Post was successfully created');
     }
 }
