@@ -4,7 +4,7 @@
         <a href="{{ route('posts.show', $post) }}">
             <h3 class="font-bold mb-3">{{ $post->title }}</h3>
         </a>
-        <p class="mb-5 line-clamp-3">{{ $post->description }}</p>
+        <p class="mb-10 line-clamp-3">{{ $post->description }}</p>
 
         <div class="flex justify-between items-center">
             <div class="flex gap-3 items-center">
@@ -19,8 +19,6 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tesla_circa_1890.jpeg/250px-Tesla_circa_1890.jpeg" alt="" class="rounded-full w-6 h-6">
             </div>
         </div>
-
-        
     </div>
     
 </div>

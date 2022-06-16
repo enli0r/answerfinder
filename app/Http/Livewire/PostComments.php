@@ -11,12 +11,12 @@ class PostComments extends Component
 
     protected $listeners = ['commentWasAdded'];
 
-    public function commentWasAdded(){
-        $this->post->refresh();
-    }
-
     public function mount(Post $post){
         $this->post = $post;
+    }
+
+    public function commentWasAdded(){
+        $this->post->refresh();
     }
 
     public function render()

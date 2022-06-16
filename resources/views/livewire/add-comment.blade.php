@@ -28,9 +28,12 @@
 
         <div class="bg-white shadow-2xl p-5 rounded-xl">
             @auth
-                <form wire:submit.prevent='submit' action="#" method="POST">
+                <form wire:submit.prevent='addComment' action="#" method="POST">
                     @csrf
-                    <textarea wire:model.difer="body" class="rounded-xl border-none bg-gray-100 w-full text-sm text-black mb-2" rows="5" name="" id="" placeholder="Tell us what you think" style="resize: none;"></textarea>
+                    <textarea name="body" id="body" wire:model.difer="body" class="rounded-xl border-none bg-gray-100 w-full text-sm text-black mb-2" rows="5" name="" id="" placeholder="Tell us what you think" style="resize: none;"></textarea>
+                    @error('body')
+                        <small class="block text-red-500 font-semibold mb-2">*{{ $message }}</small>
+                    @enderror 
 
                     <button class="rounded-xl bg-blue-500 text-white px-5 py-3" type="submit">Post comment</button>
                 </form>

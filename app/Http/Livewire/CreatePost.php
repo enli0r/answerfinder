@@ -4,7 +4,9 @@ namespace App\Http\Livewire;
 
 use App\Models\Post;
 use Livewire\Component;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
 
 class CreatePost extends Component
 {
@@ -34,8 +36,6 @@ class CreatePost extends Component
         }else{
             abort(Response::HTTP_FORBIDDEN);
         }
-
-        session()->flash('message', 'Post successfully added!');
 
         $this->reset('title');
         $this->reset('description');

@@ -13,11 +13,13 @@ class AddComment extends Component
     public $body;
 
     protected $rules = [
-        'post' => 'required|min:4',
+        'body' => 'required|min:4',
     ];
 
-    public function submit(){
-        if(auth()->check()){
+    public function addComment(){
+        if(auth()->guest()){
+            abort(Response::HTTP_FORBIDDEN);
+        }else{
             $this->validate();
 
             Comment::create([
@@ -25,17 +27,14 @@ class AddComment extends Component
                 'post_id' => $this->post->id,
                 'body' => $this->body
             ]);
-        }else{
-            abort(Response::HTTP_FORBIDDEN);
+
         }
 
         //resets body input field after submiting
         $this->reset('body');
 
-        $this->emit('commentWasAdded', 'Comment added successfully!');
-        
+        $this->emit('commentWasAdded', 'Comment added successfully!'); 
     }
-
 
 
     public function mount(Post $post){
