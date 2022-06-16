@@ -3,6 +3,10 @@
 @import 'tailwindcss/utilities';
 
 
+[x-cloak] {
+    display: none !important;
+}
+
 /* vertical line to the left of the comments */
 .comments::before{
     position: absolute;

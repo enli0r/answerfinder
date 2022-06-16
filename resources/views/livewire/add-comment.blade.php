@@ -16,10 +16,6 @@
             class="rounded-xl bg-blue-500 text-white px-5 py-3 mb-6">Reply</button>
     </div>
 
-    <style>
-        [x-cloak] {display: none}
-    </style>
-
     <div
         x-cloak
         x-show="visible"

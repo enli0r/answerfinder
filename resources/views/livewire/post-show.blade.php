@@ -3,9 +3,7 @@
         <div class="w-full">
 
             <div>
-                <a href="{{ route('posts.show', $post) }}">
-                    <h3 class="font-bold mb-3">{{ $post->title }}</h3>
-                </a>
+                <h3 class="font-bold mb-3">{{ $post->title }}</h3>
                 <p class="mb-10 line-clamp-3">{{ $post->description }}</p>
             </div>
             

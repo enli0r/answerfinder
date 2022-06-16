@@ -1,9 +1,10 @@
 <div
+    id="post-{{ $post->id }}"
     class="post-container w-full rounded-xl bg-white mb-6 p-5 flex gap-5 hover:shadow-card hover:cursor-pointer">
 
     <div class="post-info w-full">
-        <a class="post-link" href="{{ route('posts.show', $post) }}">
-            <h3 class="font-bold mb-3">{{ $post->title }}</h3>
+        <a id="post-{{ $post->id }}-link" class="font-bold mb-5" href="{{ route('posts.show', $post) }}">
+            {{ $post->title }}
         </a>
         <p class="mb-10 line-clamp-3">{{ $post->description }}</p>
 
