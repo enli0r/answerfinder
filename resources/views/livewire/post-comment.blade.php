@@ -1,8 +1,8 @@
 <div class="comment relative rounded-xl bg-white text-black p-5 mb-6 ml-24">
     <div class="flex gap-5">
         {{-- vote button and vote count --}}
-        <div class="flex flex-col items-center justify-center mt-auto mb-auto border rounded-xl">
-            <p class="text-center mb-3 mt-1"><span class="block font-semibold text-xl mb-0 @if($hasVoted) text-blue-500 @endif">{{ $votescount }}</span><span class="text-sm text-gray-500">Votes</span></p>
+        <div class="flex flex-col items-center justify-center mt-auto mb-auto rounded-xl">
+            <p class="text-center mb-8 mt-1"><span class="block font-semibold text-xl mb-0 @if($hasVoted) text-blue-500 @endif">{{ $votescount }}</span><span class="text-sm text-gray-500">Votes</span></p>
 
             @if($hasVoted)
                 <button wire:click='vote()' class="bg-blue-500 text-white font-semibold uppercase text-xs rounded-md px-5 py-3">Vote</button>
@@ -13,6 +13,8 @@
 
         </div>
         {{-- end of voting --}}
+
+        <div class="h-auto bg-gray-100" style="width: 2px"></div>
 
         {{-- comment info --}}
         <div class="flex flex-col  w-full">

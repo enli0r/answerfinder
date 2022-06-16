@@ -26,7 +26,7 @@
         @click.away="visible = false"
         class="absolute top-14 left-0 z-50 w-2/3">
 
-        <div class="bg-white shadow-2xl p-5 rounded-xl">
+        <div class="bg-white shadow-dialog p-5 rounded-xl">
             @auth
                 <form wire:submit.prevent='addComment' action="#" method="POST">
                     @csrf
