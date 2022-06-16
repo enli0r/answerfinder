@@ -9,23 +9,30 @@ use Livewire\Component;
 class PostComment extends Component
 {
     public $comment;
+    public $hasVoted;
 
     public function mount(Comment $comment){
         $this->comment = $comment;
+        $this->hasVoted = $comment->isVotedByUser(auth()->user()); //function in comment model
     }
 
     public function vote(){
-        $hasVoted = Vote::where('user_id', auth()->user()->id)->where('comment_id', $this->comment->id)->first();
-                        
-        if($hasVoted != null){
-            $hasVoted->delete();
-        }else{
-            Vote::create([
-                'user_id' => auth()->user()->id,
-                'comment_id' => $this->comment->id
-            ]);
+
+        //checks if user is logged in
+        if(!auth()->user()){
+            return redirect()->route('login');
         }
 
+        if(!$this->hasVoted)
+        {
+            $this->comment->vote(auth()->user());
+            $this->hasVoted = true;
+        }
+        else
+        {
+            $this->comment->removeVote(auth()->user());
+            $this->hasVoted = false;
+        }
     }
 
     public function render()

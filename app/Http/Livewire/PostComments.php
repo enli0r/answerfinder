@@ -9,7 +9,7 @@ class PostComments extends Component
 {
     public $post;
 
-    protected $listeners = ['commentWasAdded'];
+    protected $listeners = ['commentWasAdded', 'hasVoted'];
 
     public function mount(Post $post){
         $this->post = $post;
