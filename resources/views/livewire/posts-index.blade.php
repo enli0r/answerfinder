@@ -33,14 +33,8 @@
                                 <i class="fa-solid fa-angle-down ml-1"></i>
                         </button>
 
-                        {{-- x-cloak to remove flashing of hidden div on refresh --}}
-                        <style>
-                            [x-cloak] { display: none }
-                        </style>
-                        {{-- end of x-cloak --}}
-
                         {{-- appearing menu --}}
-                        <div x-cloak x-show='visible' class="mb-6 bg-white font-semibold rounded-md first-letter: text-left py-1 mt-12 absolute left-0 top-0 w-full border">
+                        <div x-cloak x-show='visible' class="mb-6 bg-white font-semibold rounded-md text-left py-1 mt-12 absolute left-0 top-0 w-full border shadow-dialog">
                             <a wire:click.prevent="sort('desc')" class="block py-2 px-5 hover:bg-gray-100 text-sm @if($sortDirection == 'desc') bg-gray-100 @endif" href="">Newest first</a>
                             <a wire:click.prevent="sort('asc')" class="block py-2 px-5 hover:bg-gray-100 text-sm @if($sortDirection == 'asc') bg-gray-100 @endif" href="">Oldest first</a>
                         </div>

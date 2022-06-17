@@ -19,14 +19,14 @@
                 <small class="text-red-500 font-semibold">*{{ $message }}</small>
             @enderror 
 
-            <button type="submit" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 float-right">Submit</button>
+            <button type="submit" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 float-right hover:bg-blue-400 transition">Submit</button>
         </form>
     @endauth
 
     @guest
         <div class="flex justify-center flex-col gap-5 text-center w-1/2 mx-auto">
-            <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 flex-1">Log in</a>
-            <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-xl px-4 py-3 flex-1">Sign up</a>
+            <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-blue-400 transition">Log in</a>
+            <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-gray-100 transition">Sign up</a>
         </div>
     @endguest
     

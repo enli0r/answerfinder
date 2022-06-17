@@ -13,7 +13,7 @@
     <div class="reply-button">
         <button
             @click="visible = !visible"
-            class="rounded-xl bg-blue-500 text-white px-5 py-3 mb-6">Reply</button>
+            class="rounded-xl bg-blue-500 text-white px-5 py-3 mb-6 hover:bg-blue-400 transition">Reply</button>
     </div>
 
     <div
@@ -31,7 +31,7 @@
                         <small class="block text-red-500 font-semibold mb-2">*{{ $message }}</small>
                     @enderror 
 
-                    <button class="rounded-xl bg-blue-500 text-white px-5 py-3" type="submit">Post comment</button>
+                    <button class="rounded-xl bg-blue-500 text-white px-5 py-3 hover:bg-blue-400 transition" type="submit">Post comment</button>
                 </form>
             @endauth
 

@@ -11,26 +11,35 @@
             @endif
 
 
+
         </div>
         {{-- end of voting --}}
-
         <div class="h-auto bg-gray-100" style="width: 2px"></div>
 
+        {{-- user info --}}
+        {{-- <div class="shrink-0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tesla_circa_1890.jpeg/250px-Tesla_circa_1890.jpeg" alt=""
+            class="block rounded-xl h-16 w-14">
+        </div> --}}
+        {{-- end of user info --}}
+
         {{-- comment info --}}
-        <div class="flex flex-col  w-full">
-            <div class="comment-info">                    
-                <p class="mb-5">{{ $comment->body }}</p>
+        <div class="w-full ml-3 flex flex-col">
+            <div class="mb-10">                    
+                <p class="@if(str_word_count($comment->body) <= 1) break-all @endif">{{ $comment->body }}</p>
             </div>
 
             <div class="flex justify-between items-center mt-auto">
-                <div>
+                <div class="flex gap-3 items-center">
                     <p class="block text-xs text-gray-400 font-semibold">{{ $comment->created_at->diffForHumans() }}</p>
                 </div>
 
-                <div class="user-info flex gap-2 items-center">
-                    <p class="inline text-xs font-semibold text-center">{{ $comment->user->name }}</p>
-                    <img src="https://m0.her.ie/wp-content/uploads/2018/01/07093633/GettyImages-887815620.jpg" alt="rock" class="w-6 h-6 rounded-full">
+                <div class="shrink-0 flex gap-2 items-center">
+                    <p class="block text-xs font-semibold">{{ $comment->user->name }}</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tesla_circa_1890.jpeg/250px-Tesla_circa_1890.jpeg" alt=""
+                    class="block rounded-md h-6 w-6">
                 </div>
+                
             </div>
         </div>
         {{-- end of comment info --}}

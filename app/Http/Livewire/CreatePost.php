@@ -41,5 +41,9 @@ class CreatePost extends Component
         $this->reset('description');
 
         $this->emit('postWasCreated', 'Post was successfully created');
+
+        if(url()->previous() != 'http://localhost/answerfinder/public/posts'){
+            return redirect()->route('posts.index');
+        }
     }
 }
