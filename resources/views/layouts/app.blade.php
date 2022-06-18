@@ -63,7 +63,7 @@
 
         <main class="container flex gap-5 mx-auto max-w-main">  
 
-            <div class="w-70 rounded-xl bg-white p-6 self-baseline">
+            <div class="w-70 rounded-xl bg-white p-6 self-baseline hover:shadow-card">
                 <livewire:create-post />
             </div>
 

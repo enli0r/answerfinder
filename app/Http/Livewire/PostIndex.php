@@ -13,6 +13,12 @@ class PostIndex extends Component
         $this->post = $post;
     }
 
+    public function deletePost(){
+        $this->post->delete();
+
+        $this->emit('postWasDeleted');
+    }
+
     public function render()
     {
         return view('livewire.post-index');

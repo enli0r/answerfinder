@@ -1,8 +1,8 @@
 <div id="post-{{ $post->id }}" class="post-container w-full rounded-xl bg-white mb-6 p-5 flex gap-8 hover:shadow-card hover:cursor-pointer">
 
     <div class="flex flex-col gap-2 items-center justify-start">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tesla_circa_1890.jpeg/250px-Tesla_circa_1890.jpeg" alt=""
-        class="block rounded-xl h-16 w-16">
+        <img src="https://d.newsweek.com/en/full/2060277/donald-trump.jpg?w=1600&h=1600&q=88&f=516806e889367f6445652628237ee214" alt=""
+        class="block rounded-xl h-16 w-16 border-blue-500" style="border-width: 2px;">
     </div>
     
 
@@ -12,7 +12,7 @@
 
         <div class="flex justify-between items-center relative">
             <div class="flex gap-3 items-center">
-                <p class="block text-xs text-gray-400 font-semibold hover:cursor-text">{{ $post->user->name }}</p>
+                <p class="block text-xs font-semibold hover:cursor-text text-blue-500">{{ $post->user->name }}</p>
                 <p class="text-gray-600 hover:cursor-text" style="font-size: 10px;">&#9670</p>
                 <p class="block text-xs text-gray-400 font-semibold hover:cursor-text">{{ $post->created_at->diffForHumans() }}</p>
                 <p class="text-gray-600 hover:cursor-text" style="font-size: 10px;">&#9670</p>
@@ -33,8 +33,8 @@
                     <div 
                     x-show="visible"  
                     class="absolute bg-white text-black rounded-xl z-50 border shadow-dialog w-28" style="bottom: -90px; right: -110px; ">
-                        <a href="#" class="py-2 block px-5 mt-2 text-sm hover:bg-gray-100">Edit</a>
-                        <a href="#" class="py-2 block px-5 mb-2 text-sm hover:bg-gray-100">Delete</a>
+                        <button class="py-2 block mt-2 text-sm hover:bg-gray-100 w-full text-left pl-5">Edit</button>
+                        <button wire:click.prevent="deletePost()" class="py-2 block mb-2 text-sm hover:bg-gray-100 w-full text-left pl-5">Delete</button>
                     </div>
                 </div>
             @endif

@@ -35,6 +35,12 @@ class PostComment extends Component
         }
     }
 
+    public function deleteComment(){
+        $this->comment->delete();
+
+        $this->emit('commentWasDeleted');
+    }
+
     public function render()
     {
         return view('livewire.post-comment',[

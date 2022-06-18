@@ -5023,7 +5023,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 $(function () {
   $('.post-container').on('click', function (event) {
-    $unclickable = ['p', 'img', 'i'];
+    $unclickable = ['p', 'img', 'i', 'button'];
     $clicked = event.target.tagName.toLowerCase();
 
     if (jQuery.inArray($clicked, $unclickable) == -1) {

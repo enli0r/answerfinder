@@ -13,6 +13,14 @@ class PostShow extends Component
         $this->post = $post;
     }
 
+    public function deletePost(){
+        $this->post->delete();
+        
+        $this->emit('postWasDeleted');
+
+        return redirect()->route('posts.index');
+    }
+
     public function render()
     {
         return view('livewire.post-show');

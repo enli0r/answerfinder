@@ -12,9 +12,13 @@ class PostsIndex extends Component
 
     public $sortDirection = 'desc';
 
-    protected $listeners = ['postWasCreated'];
+    protected $listeners = ['postWasCreated', 'postWasDeleted'];
 
     public function postWasCreated(){
+        $this->resetPage();
+    }
+
+    public function postWasDeleted(){
         $this->resetPage();
     }
 
