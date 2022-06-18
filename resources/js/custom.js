@@ -1,6 +1,6 @@
 $(function(){
     $('.post-container').on('click', function(event){
-        $unclickable = ['p', 'img'];
+        $unclickable = ['p', 'img', 'i'];
 
         $clicked = event.target.tagName.toLowerCase();
 

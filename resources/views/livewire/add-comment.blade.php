@@ -39,8 +39,8 @@
                 <p class="text-sm font-semibold mb-4">Please login to be able to comment on posts!</p>
 
                 <div class="flex justify-center gap-3 text-center">
-                    <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 flex-1">Log in</a>
-                    <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-xl px-4 py-3 flex-1">Sign up</a>
+                    <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-blue-400">Log in</a>
+                    <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-gray-100">Sign up</a>
                 </div>
             @endguest
         </div> 
