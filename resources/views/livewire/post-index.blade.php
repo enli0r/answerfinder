@@ -1,8 +1,8 @@
 <div id="post-{{ $post->id }}" class="post-container w-full rounded-xl bg-white mb-6 p-5 flex gap-8 hover:shadow-card hover:cursor-pointer">
 
-    <div class="flex flex-col gap-2 items-center justify-start">
+    <div class="flex flex-col gap-2 items-center justify-start shrink-0">
         <img src="https://d.newsweek.com/en/full/2060277/donald-trump.jpg?w=1600&h=1600&q=88&f=516806e889367f6445652628237ee214" alt=""
-        class="block rounded-xl h-16 w-16 border-blue-500" style="border-width: 2px;">
+        class="block rounded-xl h-16 w-14" style="">
     </div>
     
 
