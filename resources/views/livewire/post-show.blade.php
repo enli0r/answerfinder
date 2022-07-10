@@ -34,7 +34,9 @@
                         <div 
                         x-show="visible"  
                         class="absolute bg-white text-black rounded-xl z-50 border shadow-dialog w-28" style="bottom: -90px; right: -110px; ">
-                            <button class="py-2 block mt-2 text-sm hover:bg-gray-100 w-full text-left pl-5">Edit</button>
+                            <button
+                            @click="$dispatch('custom-show-edit-modal')"
+                            class="py-2 block mt-2 text-sm hover:bg-gray-100 w-full text-left pl-5">Edit</button>
                             <button wire:click.prevent="deletePost()" class="py-2 block mb-2 text-sm hover:bg-gray-100 w-full text-left pl-5">Delete</button>
                         </div>
                     </div>

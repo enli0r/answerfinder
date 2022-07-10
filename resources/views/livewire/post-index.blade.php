@@ -8,7 +8,7 @@
 
     <div class="w-full">
         <a id="post-{{ $post->id }}-link" class="block font-bold text-base mb-3" href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
-        <p class="mb-10 line-clamp-3 @if(str_word_count($post->description) <= 1) break-all @endif hover:cursor-text">{{ $post->description }}</p>
+        <p class="mb-10 line-clamp-3 @if(str_word_count($post->description) <= 1) break-all @endif hover:cursor-text">{{ $post->description  }}</p>
 
         <div class="flex justify-between items-center relative">
             <div class="flex gap-3 items-center">

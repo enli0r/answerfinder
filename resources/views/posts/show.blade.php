@@ -6,5 +6,8 @@
 
     <livewire:post-show :post="$post"/>
 
+    <livewire:edit-post />
+
+
     <livewire:post-comments :post="$post"/>
 </x-app-layout>
