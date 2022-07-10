@@ -9,7 +9,7 @@
         <div class="w-full">
             <div class="mb-10">
                 <a class="block font-bold mb-3 text-base">{{ $post->title }}</a>
-                <p class="line-clamp-3  @if(str_word_count($post->description) == 0) break-all @endif ">{{ $post->description }}</p>
+                <p class="line-clamp-3  @if(str_word_count($post->description) <= 1) break-all @endif ">{{ $post->description }}</p>
             </div>
             
             <div class="flex justify-between items-center relative">
