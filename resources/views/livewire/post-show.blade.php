@@ -20,29 +20,61 @@
                     <p class="text-gray-600" style="font-size: 10px;">&#9670</p>
                     <p class="block text-xs text-gray-400 font-semibold">{{ $post->comments->count() }} comments</p>                    
                 </div>
-            
+
                 @if ($post->user == auth()->user())
+
+                    <div class="flex justify-between gap-4"
+                        x-data
+                    >
+                        {{-- Edit icon --}}
+                        <svg
+                        @click="$dispatch('custom-show-edit-modal')"
+                        xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:cursor-pointer hover:text-green-700 text-green-500 transition" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                            <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
+                        </svg>
+
+                        {{-- delete icon --}}
+                        <svg
+                        wire:click.prevent="deletePost()"
+                        xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:cursor-pointer hover:text-red-700 text-red-500 transition" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+
+                @endif
+            
+                {{-- @if ($post->user == auth()->user())
                     <div
                     x-data='{visible:false}'
                     @click="visible= !visible"
                     @click.away="visible = false"
                     >
+                    
+
                         <div class="flex items-center bg-gray-100 rounded-full hover:cursor-pointer hover:bg-gray-200 transition hover:text-gray-500 text-gray-400">
+                            
                             <i class="fa-solid fa-ellipsis  px-3" style="font-size: 20px;"></i>
                         </div>
+
+                        
+                        
 
                         <div 
                         x-cloak
                         x-show="visible"  
                         class="absolute bg-white text-black rounded-xl z-50 border shadow-dialog w-28" style="bottom: -90px; right: -110px; ">
-                            <button
                             {{-- creating event by the name 'custom-show-edit-modal' koji se emituje prilikom klika --}}
+
+                            {{--
+                            <button
                             @click="$dispatch('custom-show-edit-modal')"
                             class="py-2 block mt-2 text-sm hover:bg-gray-100 w-full text-left pl-5">Edit</button>
                             <button wire:click.prevent="deletePost()" class="py-2 block mb-2 text-sm hover:bg-gray-100 w-full text-left pl-5">Delete</button>
                         </div>
                     </div>
-                @endif
+                @endif --}}
+                
             </div>
         </div>
     </div>    

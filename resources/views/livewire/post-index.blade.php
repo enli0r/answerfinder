@@ -20,7 +20,9 @@
             </div>
 
 
-            @if ($post->user == auth()->user())
+
+            {{-- Edit and delete buttons on index page --}}
+            {{-- @if ($post->user == auth()->user())
                 <div
                 x-data='{visible:false}'
                 @click="visible= !visible"
@@ -38,7 +40,7 @@
                         <button wire:click.prevent="deletePost()" class="py-2 block mb-2 text-sm hover:bg-gray-100 w-full text-left pl-5">Delete</button>
                     </div>
                 </div>
-            @endif
+            @endif --}}
         </div>
     </div>
     

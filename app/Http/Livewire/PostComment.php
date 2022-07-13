@@ -36,6 +36,13 @@ class PostComment extends Component
     }
 
     public function deleteComment(){
+        //Deleting all the votes for that comment
+        foreach(Vote::all() as $vote){
+            if($vote->comment_id == $this->comment->id){
+                $vote->delete();
+            }
+        }
+
         $this->comment->delete();
 
         $this->emit('commentWasDeleted');
