@@ -4,6 +4,12 @@
     <div
     x-cloak
     x-data='{visible:false}'
+    x-init="
+        window.livewire.on('postWasEdited', () => {
+            visible = false;
+        })
+    "
+    {{-- 'custom-show-edit-modal' je event koji se emituje klikom na dugme edit, ovaj modal trazi taj event i prilikom njega promenljivu visible menja na true --}}
     @custom-show-edit-modal.window="visible=true"
     x-show="visible"
     class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -17,10 +23,12 @@
         From: "opacity-100"
         To: "opacity-0"
     -->
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        <div 
+        class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
         <div class="fixed z-10 inset-0 overflow-y-auto">
-            <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+            <div
+            class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
             <!--
                 Modal panel, show/hide based on modal state.
 
@@ -34,13 +42,38 @@
                 <div
                 @click.away="visible = false"
                 class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
-                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus libero quisquam, culpa omnis amet sapiente, similique placeat, voluptatem nesciunt aut assumenda? Tempora tenetur non mollitia quia? Corporis eligendi molestias facilis quas id, ipsa labore deserunt dolore? Porro vel beatae laboriosam et facere, repellendus dolor deserunt similique officiis quidem qui officia.
+                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 relative">
+                        <svg
+                        @click="visible = false"
+                        xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute text-gray-400 hover:text-gray-600 transition-all hover:cursor-pointer" style="top: 5px; right: 5px;" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+
+
+                        <h3 class="text-xl text-center font-semibold">Edit post</h3>
+
+                        <form wire:submit.prevent="edit" action="#" method="POST" class="space-y-3">
+                            @csrf
+                
+                            <input wire:model.defer="title" type="text" class="rounded-xl border border-white bg-gray-100 text-black text-sm w-full" placeholder="Title">
+                            @error('title')
+                                <small class="text-red-500 font-semibold">*{{ $message }}</small>
+                            @enderror 
+                
+                            <textarea wire:model.defer="description" type="text" class="rounded-xl border-none bg-gray-100 text-black text-sm w-full" placeholder="Description" rows="5" style="resize: none;"></textarea>
+                            @error('description')
+                                <small class="text-red-500 font-semibold">*{{ $message }}</small>
+                            @enderror 
+                
+                            <div class="px-4 py-3 flex gap-3 justify-end">
+                                <button @click ="visible = false" class="bg-gray-200 text-black text-md font-semibold pointer rounded-xl px-6 py-3 hover:bg-gray-100 transition">Cancel</button>
+
+                                <button type="submit" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-6 py-3 float-right hover:bg-blue-400 transition">Edit</button>
+                            </div>
+                             
+                        </form>
                     </div>
-                    <div class="px-4 py-3 flex justify-end">
-                        <button @click="visible = false" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
-                        <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Confirm</button>  
-                    </div>
+
                 </div>
             </div>
         </div>

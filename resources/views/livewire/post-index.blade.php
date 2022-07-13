@@ -30,7 +30,8 @@
                         <i class="fa-solid fa-ellipsis  px-3" style="font-size: 20px;"></i>
                     </div>
 
-                    <div 
+                    <div
+                    x-cloak
                     x-show="visible"  
                     class="absolute bg-white text-black rounded-xl z-50 border shadow-dialog w-28" style="bottom: -90px; right: -110px; ">
                         <button class="py-2 block mt-2 text-sm hover:bg-gray-100 w-full text-left pl-5">Edit</button>

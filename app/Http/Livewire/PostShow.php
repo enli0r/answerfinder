@@ -10,8 +10,15 @@ class PostShow extends Component
 {
     public $post;
 
+    protected $listeners = ['postWasEdited'];
+
+
     public function mount(Post $post){
         $this->post = $post;
+    }
+
+    public function postWasEdited(){
+        $this->post->refresh();
     }
 
     public function deletePost(){
