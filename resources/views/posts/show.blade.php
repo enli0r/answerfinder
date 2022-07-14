@@ -7,4 +7,7 @@
     <livewire:post-show :post="$post"/>
     
     <livewire:post-comments :post="$post"/>
+
+    <livewire:post-delete-popup :post="$post" />
+
 </x-app-layout>

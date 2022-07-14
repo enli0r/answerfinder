@@ -12,34 +12,12 @@ class PostShow extends Component
 
     protected $listeners = ['postWasEdited'];
 
-
     public function mount(Post $post){
         $this->post = $post;
     }
 
     public function postWasEdited(){
         $this->post->refresh();
-    }
-
-    public function deletePost(){
-        foreach($this->post->comments as $comment){
-            //deleting all of the votes for that comment
-            foreach(Vote::all() as $vote){
-                if($comment->id == $vote->comment_id){
-                    $vote->delete();
-                }
-            }
-
-            //deleting the comment
-            $comment->delete();
-        }
-
-        //deleting the post
-        $this->post->delete();
-        
-        $this->emit('postWasDeleted');
-
-        return redirect()->route('posts.index');
     }
 
     public function render()
