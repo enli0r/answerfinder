@@ -1021,6 +1021,9 @@ select {
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
 }
+.self-center {
+  align-self: center;
+}
 .self-baseline {
   align-self: baseline;
 }
