@@ -1,4 +1,48 @@
-<div>
+<div
+x-cloak
+x-data="{isOpen:false}"
+x-show="isOpen"
+x-init="window.livewire.on('postWasEdited', () => {
+    isOpen=false;
+    $dispatch('custom-close-edit-modal');
+})"
+@custom-show-edit-modal.window="isOpen=true"
+>
+
+    <form
+    @click.away="
+    isOpen=false
+    $dispatch('custom-close-edit-modal')
+    "
+    wire:submit.prevent="edit" action="" method="POST" class="w-full rounded-xl bg-white mb-4 p-5 flex gap-8">
+        @csrf
+
+        <div class="flex flex-col gap-2 items-center justify-start shrink-0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tesla_circa_1890.jpeg/250px-Tesla_circa_1890.jpeg" alt=""
+            class="block rounded-xl h-16 w-14">
+        </div>
+
+        <div class="w-full">
+            <input type="text" wire:model.defer="title" class="block w-full font-semibold mb-3 text-base border-none bg-gray-100 rounded-lg"/>
+            <textarea wire:model.defer="description" class="w-full border-none bg-gray-100 rounded-lg" style="resize: none;" autofocus></textarea>
+
+            <div class="mt-2 flex gap-3 justify-end">
+                <button
+                @click="
+                isOpen=false
+                $dispatch('custom-close-edit-modal')
+                "
+                class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-6 py-3 hover:bg-blue-400 transition">Cancel</button>
+    
+                <button type="submit" class="bg-green-600 text-white text-md font-semibold pointer rounded-xl px-6 py-3 float-right hover:bg-green-500 transition">Edit</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+{{-- <div>
     <!-- This example requires Tailwind CSS v2.0+ -->
 
     <div
@@ -9,7 +53,6 @@
             visible = false;
         })
     "
-    {{-- 'custom-show-edit-modal' je event koji se emituje klikom na dugme edit, ovaj modal trazi taj event i prilikom njega promenljivu visible menja na true --}}
     @custom-show-edit-modal.window="visible=true"
     x-show="visible"
     class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -78,4 +121,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
