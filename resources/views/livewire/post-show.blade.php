@@ -1,7 +1,9 @@
-<div
-x-data="{visible:true}"
-x-show="visible"
-@custom-close-edit-modal.window="visible=true"
+<div 
+x-data="{editOpen:false, visible:true}"
+x-init="window.livewire.on('postWasEdited', () => {
+    visible=true;
+    editOpen=false;
+})"
 >
     <div
     class="w-full rounded-xl bg-white mb-4 p-5 flex gap-8">
@@ -11,7 +13,9 @@ x-show="visible"
             class="block rounded-xl h-16 w-14">
         </div>
 
-        <div class="w-full">
+        <div
+        x-show="visible"
+        class="w-full">
             <div class="mb-10">
                 <a class="block font-semibold mb-3 text-base">{{ $post->title }}</a>
                 <p class="line-clamp-3  @if(str_word_count($post->description) <= 1) break-all @endif ">{{ $post->description }}</p>
@@ -35,7 +39,7 @@ x-show="visible"
                         @click=
                         "
                         visible=false
-                        $dispatch('custom-show-edit-modal')
+                        editOpen=true
                         "
                         xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:cursor-pointer hover:text-green-700 text-green-500 transition" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
@@ -85,6 +89,8 @@ x-show="visible"
                 
             </div>
         </div>
+
+        <livewire:edit-post :post="$post" />
     </div>    
 
     <livewire:add-comment :post="$post"/>

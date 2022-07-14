@@ -5,20 +5,18 @@ x-show="isOpen"
 isOpen=false
 editClosed=true
 "
-@custom-show-comment-edit-modal.window="isOpen=true"
 x-init="
     window.livewire.on('commentWasEdited', () => {
-        isOpen=false;
-        $dispatch('custom-close-comment-edit-modal')
+        isOpen=false
+        editClosed=true
     })
 "
 
 
 class="w-full ml-3 flex flex-col">
-
     <form
 
-        wire:submit.prevent="edit" action="" method="POST" class="">
+        wire:submit.prevent="edit" action="" method="POST">
         @csrf
         <div class="mb-5">
             <textarea wire:model.defer="body" type="text" class="bg-gray-100 text-sm border-none rounded-xl w-full" style="resize: none;"></textarea>

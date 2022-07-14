@@ -1,6 +1,5 @@
 <div
     x-data="{editClosed:true, isOpen:false}"
-    @custom-close-comment-edit-modal="editClosed=true"
 >
     <div class="comment relative rounded-xl bg-white text-black p-5 mb-6 ml-24">
         <div class="flex gap-5">
@@ -40,7 +39,6 @@
                             {{-- Edit icon --}}
                             <svg
                             @click="
-                                {{-- $dispatch('custom-show-comment-edit-modal') --}}
                                 isOpen=true
                                 editClosed=false
                             "

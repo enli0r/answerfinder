@@ -1,45 +1,34 @@
 <div
 x-cloak
-x-data="{isOpen:false}"
-x-show="isOpen"
-x-init="window.livewire.on('postWasEdited', () => {
-    isOpen=false;
-    $dispatch('custom-close-edit-modal');
-})"
-@custom-show-edit-modal.window="isOpen=true"
+x-show="editOpen"
+class="w-full"
 >
-
     <form
-    @click.away="
-    isOpen=false
-    $dispatch('custom-close-edit-modal')
-    "
-    wire:submit.prevent="edit" action="" method="POST" class="w-full rounded-xl bg-white mb-4 p-5 flex gap-8">
+    class="w-full mb-5"
+
+    wire:submit.prevent="edit" action="" method="POST">
         @csrf
 
-        <div class="flex flex-col gap-2 items-center justify-start shrink-0">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tesla_circa_1890.jpeg/250px-Tesla_circa_1890.jpeg" alt=""
-            class="block rounded-xl h-16 w-14">
-        </div>
-
-        <div class="w-full">
-            <input type="text" wire:model.defer="title" class="block w-full font-semibold mb-3 text-base border-none bg-gray-100 rounded-lg"/>
-            <textarea wire:model.defer="description" class="w-full border-none bg-gray-100 rounded-lg" style="resize: none;" autofocus></textarea>
-
-            <div class="mt-2 flex gap-3 justify-end">
-                <button
-                @click="
-                isOpen=false
-                $dispatch('custom-close-edit-modal')
-                "
-                class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-6 py-3 hover:bg-blue-400 transition">Cancel</button>
-    
-                <button type="submit" class="bg-green-600 text-white text-md font-semibold pointer rounded-xl px-6 py-3 float-right hover:bg-green-500 transition">Edit</button>
-            </div>
-        </div>
-
+        <input type="text" wire:model.defer="title" class="block w-full font-semibold mb-3 text-base border-none bg-gray-100 rounded-xl"/>
+        <textarea wire:model.defer="description" class="w-full border-none bg-gray-100 rounded-lg" style="resize: none;" autofocus></textarea>
     </form>
 
+    <div class="flex justify-center gap-4">
+        <svg
+        wire:click.prevent="edit()"
+        xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-green-600 hover:cursor-pointer hover:text-green-500 transition" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+
+        <svg
+        @click="
+        editOpen=false
+        visible=true
+        "
+        xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-red-600 hover:cursor-pointer hover:text-red-500 transition" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+    </div>
 </div>
 
 {{-- <div>
