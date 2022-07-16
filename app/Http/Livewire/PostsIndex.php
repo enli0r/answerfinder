@@ -11,6 +11,9 @@ class PostsIndex extends Component
     use WithPagination;
 
     public $sortDirection = 'desc';
+    public $search;
+
+    protected $queryString = ['search'];
 
     protected $listeners = ['postWasCreated', 'postWasDeleted'];
 
@@ -30,10 +33,18 @@ class PostsIndex extends Component
         }
     }
 
+    public function updatingSerach(){
+        $this->resetPage();
+    }
+
     public function render()
     {
         return view('livewire.posts-index', [
-            'posts' => Post::orderBy('created_at', $this->sortDirection)->get()
+            'posts' => Post::when(strlen($this->search) >= 3, function($query){
+                return $query->where('title', 'like', '%'.$this->search.'%');
+            })
+            ->orderBy('created_at', $this->sortDirection)
+            ->get()
         ]);
     }
 }
