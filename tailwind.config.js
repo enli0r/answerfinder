@@ -8,6 +8,18 @@ module.exports = {
     ],
 
     theme: {
+
+        screens:{
+            'sm': {'max': '639px'},
+
+            'md': {'max': '767px'},
+
+            'lg': {'max': '1023px'},
+
+            'xl': {'max': '1279px'},
+
+        },
+
         extend: {
             colors: {
                 'gray-background' : '#f7f8fc'
@@ -30,6 +42,16 @@ module.exports = {
             fontFamily: {
                 sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
             },
+
+            screens:{
+                'smMin': '640px',
+
+                'mdMin': '768px',
+
+                'lgMin': '1024px',
+
+                'xlMin': '1280px'
+            }
         },
     },
 

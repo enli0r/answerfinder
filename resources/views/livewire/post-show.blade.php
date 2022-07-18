@@ -5,29 +5,32 @@ x-init="window.livewire.on('postWasEdited', () => {
     editOpen=false;
 })"
 >
-    <div
-    class="w-full rounded-xl bg-white mb-4 p-5 flex gap-8">
-
-        <div class="flex flex-col gap-2 items-center justify-start shrink-0">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tesla_circa_1890.jpeg/250px-Tesla_circa_1890.jpeg" alt=""
-            class="block rounded-xl h-16 w-14">
+    <div class="w-full rounded-xl bg-white mb-4 p-5 flex gap-6 sm:flex-col sm:gap-4">
+        
+        <div class="flex flex-col gap-2 items-center justify-start shrink-0 sm:flex-row">
+            <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt=""
+            class="block rounded-xl h-16 w-16 sm:h-6 sm:w-6">
+            <p class="block text-xs text-blue-500 font-semibold smMin:hidden">{{ $post->user->name }}</p>
+            <p class="text-gray-600 smMin:hidden" style="font-size: 10px;">/</p>
+            <p class="block text-xs text-gray-400 font-semibold smMin:hidden">{{ $post->created_at->diffForHumans() }}</p>
         </div>
-
+    
         <div
         x-show="visible"
         class="w-full">
-            <div class="mb-10">
+            <div class="mb-8">
                 <a class="block font-semibold mb-3 text-base">{{ $post->title }}</a>
-                <p class="line-clamp-3  @if(str_word_count($post->description) <= 1) break-all @endif ">{{ $post->description }}</p>
+                <p class="sm:line-clamp-5 line-clamp-3  @if(str_word_count($post->description) <= 1) break-all @endif ">{{ $post->description }}</p>
             </div>
             
             <div class="flex justify-between items-center relative">
+
                 <div class="flex gap-3 items-center">
-                    <p class="block text-xs text-blue-500 font-semibold">{{ $post->user->name }}</p>
-                    <p class="text-gray-600" style="font-size: 10px;">&#9670</p>
-                    <p class="block text-xs text-gray-400 font-semibold">{{ $post->created_at->diffForHumans() }}</p>
-                    <p class="text-gray-600" style="font-size: 10px;">&#9670</p>
-                    <p class="block text-xs text-gray-400 font-semibold">{{ $post->comments->count() }} comments</p>                    
+                    <p class="block text-xs text-blue-500 font-semibold sm:hidden">{{ $post->user->name }}</p>
+                    <p class="text-gray-600 sm:hidden" style="font-size: 10px;">/</p>
+                    <p class="block text-xs text-gray-400 font-semibold sm:hidden">{{ $post->created_at->diffForHumans() }}</p>
+                    <p class="text-gray-600 sm:hidden" style="font-size: 10px;">/</p>
+                    <p class="block text-xs text-gray-400 font-semibold hover:cursor-text">{{ $post->comments->count() }} comments</p>     
                 </div>
 
                 @if ($post->user == auth()->user())
@@ -72,7 +75,9 @@ x-init="window.livewire.on('postWasEdited', () => {
         </div>
 
         <livewire:edit-post :post="$post" />
-    </div>    
+    </div>
+        
+</div>    
 
     <livewire:add-comment :post="$post"/>
 

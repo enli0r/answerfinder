@@ -1,7 +1,7 @@
 <div
 x-cloak
 x-show="editOpen"
-class="w-full"
+class="w-full overflow-hidden"
 @click.away=
 "
 editOpen=false

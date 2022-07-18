@@ -31,7 +31,7 @@
 
 
         <header class="flex items-center justify-between px-8 py-4">
-            <a href="{{ route('posts.index') }}">answerfinder</a>
+            <a href="{{ route('posts.index') }}" class="uppercase text-black text-base font-semibold">answerfinder</a>
             <div class="flex items-center justify-between">
                 @if (Route::has('login'))
                     <div class="px-6 py-4">
@@ -46,24 +46,24 @@
                                 </a>
                             </form>
                         @else
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline dark:text-gray-500">Log in</a>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-900 underline">Log in</a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline dark:text-gray-500">Register</a>
+                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-900 underline">Register</a>
                             @endif
                         @endauth
                     </div>
                 @endif
 
                 <a href="#">
-                    <img src="https://static.nationalgeographic.rs/Picture/6985/jpeg/Vincent_van_Gogh___National_Gallery_of_Art_681308748" alt="xd" class="w-10 h-10 rounded-full">
+                    <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt="xd" class="w-10 h-10 rounded-full">
                 </a>
             </div>
         </header>
 
-        <main class="container flex gap-5 mx-auto max-w-main">  
+        <main class="container flex mx-auto max-w-main md:px-5 mdMin:gap-5">  
 
-            <div class="w-70 rounded-xl bg-white p-6 self-baseline hover:shadow-card">
+            <div class="w-70 rounded-xl bg-white p-6 self-baseline hover:shadow-card md:hidden">
                 <livewire:create-post />
             </div>
 

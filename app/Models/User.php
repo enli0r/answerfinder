@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\UserImage;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -55,5 +56,9 @@ class User extends Authenticatable
 
     public function votes(){
         return $this->belongsToMany(Comment::class, 'votes');
+    }
+
+    public function image(){
+        return $this->hasOne(UserImage::class);
     }
 }

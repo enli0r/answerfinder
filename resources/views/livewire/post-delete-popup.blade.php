@@ -16,7 +16,7 @@ class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="tr
 
         <div 
         @click.away="visible=false"
-        class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
+        class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full sm:mx-5">
 
         <svg 
         @click="visible=false"
@@ -33,10 +33,10 @@ class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="tr
           <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row justify-center gap-4">
             <button 
             wire:click.prevent="deletePost()"
-            class="bg-blue-500 hover:bg-blue-400 text-white text-md font-semibold pointer rounded-xl px-4 py-3 float-right transition">Yes, I'm sure</button>
+            class="bg-red-700 hover:bg-red-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 float-right transition">Yes, I'm sure</button>
             <button 
             @click="visible=false"
-            class="bg-red-700 hover:bg-red-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 float-right  transition">No, cancel</button>
+            class="bg-blue-500 hover:bg-blue-400 text-white text-md font-semibold pointer rounded-xl px-4 py-3 float-right  transition">No, cancel</button>
           </div>
         </div>
       </div>

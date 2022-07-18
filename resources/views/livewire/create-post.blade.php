@@ -1,5 +1,4 @@
 <div>
-    
     <div class="text-center">
         <h4 class="text-lg font-bold mb-3">Ask a question</h4>
         <p class="text-xs mb-8">Find the answer you are looking for!</p>

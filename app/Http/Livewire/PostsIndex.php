@@ -40,7 +40,7 @@ class PostsIndex extends Component
     public function render()
     {
         return view('livewire.posts-index', [
-            'posts' => Post::when(strlen($this->search) >= 3, function($query){
+            'posts' => Post::when(strlen($this->search) >= 2, function($query){
                 return $query->where('title', 'like', '%'.$this->search.'%');
             })
             ->orderBy('created_at', $this->sortDirection)

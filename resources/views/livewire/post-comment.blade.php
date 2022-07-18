@@ -27,7 +27,7 @@
     
                 <div class="flex justify-between items-center mt-auto relative">
                     <div class="flex gap-3 items-center">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tesla_circa_1890.jpeg/250px-Tesla_circa_1890.jpeg" alt=""
+                        <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt=""
                         class="block rounded-full h-6 w-6 hover:cursor-pointer">
                         <p class="block text-xs text-gray-400 font-semibold">{{ $comment->user->name }}</p>
                         <p class="text-gray-600 hover:cursor-text" style="font-size: 10px;">&#9670</p>
