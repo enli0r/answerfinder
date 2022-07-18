@@ -24,7 +24,7 @@ class EditPost extends Component
             'description' => $this->description
         ]);
 
-        $this->emit('postWasEdited');
+        $this->emit('postWasEdited', 'Post was successfully updated!');
     }
 
     public function mount(Post $post){

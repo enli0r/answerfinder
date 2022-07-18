@@ -30,9 +30,9 @@ class PostDeletePopup extends Component
         //deleting the post
         $this->post->delete();
         
-        $this->emit('postWasDeleted');
+        $this->emit('postWasDeleted', 'Post was successfully deleted!');
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('message', 'Post was successfully deleted!');
     }
     
 

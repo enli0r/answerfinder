@@ -24,7 +24,7 @@ class CommentDeletePopup extends Component
 
         $this->comment->delete();
 
-        $this->emit('commentWasDeleted');
+        $this->emit('commentWasDeleted', 'Comment was successfully deleted!');
     }
 
     public function render()

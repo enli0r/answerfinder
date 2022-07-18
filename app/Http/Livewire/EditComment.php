@@ -26,7 +26,7 @@ class EditComment extends Component
             'body' => $this->body
         ]);
 
-        $this->emit('commentWasEdited');
+        $this->emit('commentWasEdited', 'Comment was successfully updated!');
     }
 
     public function render()

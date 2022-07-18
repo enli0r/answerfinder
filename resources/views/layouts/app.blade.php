@@ -27,7 +27,7 @@
         @livewireStyles
     </head>
     
-    <body class="font-sans text-sm text-gray-900 bg-gray-background">
+    <body class="font-sans text-sm text-gray-900 bg-gray-background relative">
 
 
         <header class="container max-w-main mx-auto flex items-center justify-between mb-5 mt-3 lg:px-5 py-">
@@ -74,8 +74,13 @@
             
         </main>
 
-        
-        
+        <x-notification-success />
+
+        @if (session('message'))
+            <x-notification-success :redirect="true" messageToDisplay="{{ session('message') }}"/>
+        @else
+            <x-notification-success />
+        @endif
 
         @livewireScripts
     </body>

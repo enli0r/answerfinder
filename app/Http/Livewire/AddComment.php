@@ -33,7 +33,7 @@ class AddComment extends Component
         //resets body input field after submiting
         $this->reset('body');
 
-        $this->emit('commentWasAdded', 'Comment added successfully!'); 
+        $this->emit('commentWasAdded', 'Comment was added successfully!'); 
     }
 
 
