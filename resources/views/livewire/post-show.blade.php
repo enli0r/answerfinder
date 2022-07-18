@@ -11,7 +11,7 @@ x-init="window.livewire.on('postWasEdited', () => {
             <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt=""
             class="block rounded-xl h-16 w-16 sm:h-6 sm:w-6">
             <p class="block text-xs text-blue-500 font-semibold smMin:hidden">{{ $post->user->name }}</p>
-            <p class="text-gray-600 smMin:hidden" style="font-size: 10px;">/</p>
+            <p class="smMin:hidden text-gray-500 font-semibold">/</p>
             <p class="block text-xs text-gray-400 font-semibold smMin:hidden">{{ $post->created_at->diffForHumans() }}</p>
         </div>
     
@@ -27,9 +27,9 @@ x-init="window.livewire.on('postWasEdited', () => {
 
                 <div class="flex gap-3 items-center">
                     <p class="block text-xs text-blue-500 font-semibold sm:hidden">{{ $post->user->name }}</p>
-                    <p class="text-gray-600 sm:hidden" style="font-size: 10px;">/</p>
+                    <p class="sm:hidden text-gray-500 font-semibold">/</p>
                     <p class="block text-xs text-gray-400 font-semibold sm:hidden">{{ $post->created_at->diffForHumans() }}</p>
-                    <p class="text-gray-600 sm:hidden" style="font-size: 10px;">/</p>
+                    <p class="sm:hidden text-gray-500 font-semibold">/</p>
                     <p class="block text-xs text-gray-400 font-semibold hover:cursor-text">{{ $post->comments->count() }} comments</p>     
                 </div>
 
@@ -77,8 +77,6 @@ x-init="window.livewire.on('postWasEdited', () => {
         <livewire:edit-post :post="$post" />
     </div>
         
+    <livewire:add-comment :post="$post"/>
 </div>    
 
-    <livewire:add-comment :post="$post"/>
-
-</div>

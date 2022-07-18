@@ -4,7 +4,7 @@
         <div class="flex justify-start items-baseline mb-2 gap-3 sm:flex-col-reverse">
 
 
-            <div class="flex justify-start items-baseline gap-3">
+            <div class="flex justify-start items-baseline gap-3 sm:self-end">
                 <div class="relative">
                     {{-- Newest first/Oldest firstt --}}
                     <button 
@@ -46,9 +46,9 @@
                     @csrf
 
                     <div class="relative">
-                        <input wire:model="search" type="search" class="rounded-lg bg-white text-black border-none text-sm py-3 pl-9 placeholder-gray-900 w-full" placeholder="Search">
+                        <input wire:model="search" type="search" class="rounded-lg bg-white text-black border-none text-sm py-3 pl-12 placeholder-gray-900 w-full" style="border-color: #e5e7eb" placeholder="Search">
 
-                        <div class="absolute mr-2" style="left:10px; top:50%; transform:translateY(-50%)">
+                        <div class="absolute ml-5" style="left:0px; top:50%; transform:translateY(-50%)">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>

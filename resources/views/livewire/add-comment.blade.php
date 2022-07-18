@@ -20,7 +20,7 @@
         x-cloak
         x-show="visible"
         @click.away="visible = false"
-        class="absolute top-14 left-0 z-50 w-2/3">
+        class="absolute top-14 left-0 z-50 w-2/3 sm:w-full">
 
         <div class="bg-white shadow-dialog p-5 rounded-xl">
             @auth

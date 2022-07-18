@@ -19,7 +19,7 @@ class="w-full ml-3 flex flex-col">
         wire:submit.prevent="edit" action="" method="POST">
         @csrf
         <div class="mb-5">
-            <textarea wire:model.defer="body" type="text" class="bg-gray-100 text-sm border-none rounded-xl w-full" style="resize: none;"></textarea>
+            <textarea wire:model.defer="body" type="text" class="bg-gray-100 text-sm border-none rounded-xl w-full" rows="6" style="resize: none;"></textarea>
         </div>
 
     </form>

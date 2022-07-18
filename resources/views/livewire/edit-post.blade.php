@@ -15,7 +15,7 @@ visible=true
         @csrf
 
         <input type="text" wire:model.defer="title" class="block w-full font-semibold mb-3 text-base border-none bg-gray-100 rounded-xl"/>
-        <textarea wire:model.defer="description" class="w-full border-none bg-gray-100 rounded-lg" style="resize: none;" autofocus></textarea>
+        <textarea wire:model.defer="description" class="w-full border-none bg-gray-100 rounded-lg" rows="6" style="resize: none;" autofocus></textarea>
     </form>
 
     <div class="flex justify-center gap-4">

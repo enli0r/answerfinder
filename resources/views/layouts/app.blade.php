@@ -30,7 +30,7 @@
     <body class="font-sans text-sm text-gray-900 bg-gray-background">
 
 
-        <header class="flex items-center justify-between px-8 py-4">
+        <header class="container max-w-main mx-auto flex items-center justify-between mb-5 mt-3 lg:px-5 py-">
             <a href="{{ route('posts.index') }}" class="uppercase text-black text-base font-semibold">answerfinder</a>
             <div class="flex items-center justify-between">
                 @if (Route::has('login'))
@@ -61,7 +61,7 @@
             </div>
         </header>
 
-        <main class="container flex mx-auto max-w-main md:px-5 mdMin:gap-5">  
+        <main class="container flex mx-auto max-w-main lg:px-5 mdMin:gap-5">  
 
             <div class="w-70 rounded-xl bg-white p-6 self-baseline hover:shadow-card md:hidden">
                 <livewire:create-post />
