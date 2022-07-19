@@ -36,6 +36,7 @@ class="w-full flex flex-col">
         
         <button
         @click="
+        showMore=false
         isOpen=false
         editClosed=true
         "

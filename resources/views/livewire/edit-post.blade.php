@@ -32,6 +32,7 @@ visible=true
         @click="
         editOpen=false
         visible=true
+        showMore=false
         "
         class="rounded-lg hover:bg-gray-200 transition"
         >

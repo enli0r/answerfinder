@@ -1,5 +1,5 @@
 <div
-    x-data="{editClosed:true, isOpen:false, commentDelete:false}"
+    x-data="{editClosed:true, isOpen:false, commentDelete:false, showMore:false}"
 >
     <div class="comment relative rounded-xl bg-white text-black p-5 mb-6 smMin:ml-24">
         <div class="flex flex-col gap-5">
@@ -39,7 +39,7 @@
                     <div class="flex justify-between items-center mt-auto relative self-end">
 
                         @if ($comment->user == auth()->user())
-                            <div x-show="editClosed" x-data="{showMore:false}" class="flex justify-between gap-4">
+                            <div x-show="editClosed" x-data= class="flex justify-between gap-4">
 
                                 <button 
                                     @click="showMore=!showMore"

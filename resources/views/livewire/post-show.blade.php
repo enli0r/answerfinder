@@ -1,5 +1,5 @@
 <div 
-x-data="{editOpen:false, visible:true}"
+x-data="{editOpen:false, visible:true, showMore:false}"
 x-init="window.livewire.on('postWasEdited', () => {
     visible=true;
     editOpen=false;
@@ -37,36 +37,56 @@ x-init="window.livewire.on('postWasEdited', () => {
 
                 @if ($post->user == auth()->user())
 
-                    <div class="flex justify-between gap-4"
-                    >
-                        {{-- Edit icon --}}
+                    <div class="flex justify-between gap-4">
                         <button 
-                        @click=
-                        "
-                        visible=false
-                        editOpen=true
-                        "
-                        class="rounded-lg p-1 hover:bg-gray-200 transition"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:cursor-pointer text-green-600" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                                <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                        
+                        @click="showMore=!showMore"
 
-                        {{-- delete icon --}}
-                        <button 
-                        @click=
-                        "
-                            $dispatch('custom-post-delete-popup')
-                        "
-                        class="rounded-md p-1 hover:bg-gray-200 transition"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:cursor-pointer text-red-600" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
+                        class="bg-gray-100 border rounded-full flex justify-between gap-1" style="padding: 7px 10px;">
+
+                        <svg style="width: 5px; height: 5px;" class="text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 31.955 31.955">
+                            
+                            <path d="M27.25,4.655C20.996-1.571,10.88-1.546,4.656,4.706C-1.571,10.96-1.548,21.076,4.705,27.3
+                            c6.256,6.226,16.374,6.203,22.597-0.051C33.526,20.995,33.505,10.878,27.25,4.655z"/>
+                                
+                        </svg>
+
+                        <svg style="width: 5px; height: 5px;" class="text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 31.955 31.955">
+                            
+                            <path d="M27.25,4.655C20.996-1.571,10.88-1.546,4.656,4.706C-1.571,10.96-1.548,21.076,4.705,27.3
+                            c6.256,6.226,16.374,6.203,22.597-0.051C33.526,20.995,33.505,10.878,27.25,4.655z"/>
+                                
+                        </svg>
+
+                        <svg style="width: 5px; height: 5px;" class="text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 31.955 31.955">
+                            
+                            <path d="M27.25,4.655C20.996-1.571,10.88-1.546,4.656,4.706C-1.571,10.96-1.548,21.076,4.705,27.3
+                            c6.256,6.226,16.374,6.203,22.597-0.051C33.526,20.995,33.505,10.878,27.25,4.655z"/>
+                                
+                        </svg>
+                    </button>
+
+                    <div 
+                        x-show="showMore"
+                        @click.away="showMore=false"
+                        class="absolute bottom-0 right-0 w-24 rounded-xl bg-white shadow-dialog flex flex-col py-2 -mr-24 -mb-24 z-50">
+                            <p
+                                @click=
+                                "
+                                visible=false
+                                editOpen=true
+                                "
+                            class="hover:bg-gray-200 hover:cursor-pointer py-2 px-3 font-semibold" href="">Edit</p>
+                            <p
+                            @click=
+                                "
+                                showMore=false
+                                $dispatch('custom-post-delete-popup')
+                                "
+                            class="hover:bg-gray-200 hover:cursor-pointer  py-2 px-3 font-semibold" href="">Delete</p>
+                    </div>
                         
                     </div>
 
