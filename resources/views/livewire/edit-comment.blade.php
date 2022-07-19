@@ -13,7 +13,7 @@ x-init="
 "
 
 
-class="w-full ml-3 flex flex-col">
+class="w-full flex flex-col">
     <form
 
         wire:submit.prevent="edit" action="" method="POST">

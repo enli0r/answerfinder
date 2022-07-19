@@ -5,32 +5,34 @@ x-init="window.livewire.on('postWasEdited', () => {
     editOpen=false;
 })"
 >
-    <div class="w-full rounded-xl bg-white mb-4 p-5 flex gap-6 sm:flex-col sm:gap-4">
+    <div class="w-full rounded-xl bg-white mb-4 p-5 flex gap-5 sm:flex-col sm:gap-3">
         
         <div class="flex flex-col gap-2 items-center justify-start shrink-0 sm:flex-row">
             <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt=""
-            class="block rounded-xl h-16 w-16 sm:h-6 sm:w-6">
-            <p class="block text-xs text-blue-500 font-semibold smMin:hidden">{{ $post->user->name }}</p>
-            <p class="smMin:hidden text-gray-500 font-semibold">/</p>
-            <p class="block text-xs text-gray-400 font-semibold smMin:hidden">{{ $post->created_at->diffForHumans() }}</p>
+            class="block rounded-xl h-16 w-16 sm:h-8 sm:w-8 sm:rounded-lg">
+
+            <div class="smMin:hidden">
+                <p class="block text-sm text-blue-500 font-semibold">{{ $post->user->name }}</p>
+                <p class="block text-xs text-gray-400 font-semibold">{{ $post->created_at->diffForHumans() }}</p>
+            </div>
         </div>
     
         <div
         x-show="visible"
         class="w-full">
-            <div class="mb-8">
-                <a class="block font-semibold mb-3 text-base">{{ $post->title }}</a>
+            <div class="mb-8 sm:mb-4">
+                <a class="block font-bold mb-3 text-lg">{{ $post->title }}</a>
                 <p class="sm:line-clamp-5 line-clamp-3  @if(str_word_count($post->description) <= 1) break-all @endif ">{{ $post->description }}</p>
             </div>
             
             <div class="flex justify-between items-center relative">
 
                 <div class="flex gap-3 items-center">
-                    <p class="block text-xs text-blue-500 font-semibold sm:hidden">{{ $post->user->name }}</p>
-                    <p class="sm:hidden text-gray-500 font-semibold">/</p>
+                    <p class="block text-sm text-blue-500 font-semibold sm:hidden">{{ $post->user->name }}</p>
+                    <p class="sm:hidden text-gray-500 font-semibold">•</p>
                     <p class="block text-xs text-gray-400 font-semibold sm:hidden">{{ $post->created_at->diffForHumans() }}</p>
-                    <p class="sm:hidden text-gray-500 font-semibold">/</p>
-                    <p class="block text-xs text-gray-400 font-semibold hover:cursor-text">{{ $post->comments->count() }} comments</p>     
+                    <p class="sm:hidden text-gray-500 font-semibold">•</p>
+                    <p class="block text-xs text-gray-900 font-semibold hover:cursor-text">{{ $post->comments->count() }} comments</p>     
                 </div>
 
                 @if ($post->user == auth()->user())

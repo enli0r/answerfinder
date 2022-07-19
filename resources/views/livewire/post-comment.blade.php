@@ -4,7 +4,7 @@
     <div class="comment relative rounded-xl bg-white text-black p-5 mb-6 smMin:ml-24">
         <div class="flex flex-col gap-5">
 
-            <div class="flex gap-5">
+            <div class="flex gap-5 sm:gap-3">
                 {{-- vote button and vote count --}}
                 <div class="flex flex-col items-center justify-center mt-auto mb-auto rounded-xl">
                     <p class="text-center mb-4 mt-1"><span class="block font-semibold text-xl mb-0 @if($hasVoted) text-blue-500 @endif">{{ $votescount }}</span><span class="text-sm text-gray-500">Votes</span></p>
@@ -18,15 +18,18 @@
                 {{-- end of voting --}}
                 <div class="h-auto bg-gray-100" style="width: 2px"></div>
 
-                {{-- comment info --}}
-                <div x-show="editClosed" class="w-full ml-3 flex flex-col">
+                {{-- comment + user info --}}
+                <div x-show="editClosed" class="w-full flex flex-col">
 
-                    <div class="flex gap-3 items-center mb-4 flex-wrap">
+                    <div class="flex gap-3 items-center mb-3 flex-wrap">
                         <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt=""
-                        class="block rounded-full h-6 w-6 hover:cursor-pointer">
-                        <p class="block text-xs text-blue-500 font-semibold">{{ $comment->user->name }}</p>
-                        <p class="text-gray-500 font-semibold">/</p>
-                        <p class="block text-xs text-gray-400 font-semibold">{{ $comment->created_at->diffForHumans() }}</p>
+                        class="block h-8 w-8 rounded-lg hover:cursor-pointer">
+
+                        <div>
+                            <p class="block text-sm text-blue-500 font-semibold">{{ $comment->user->name }}</p>
+                            <p class="block text-xs text-gray-400 font-semibold">{{ $comment->created_at->diffForHumans() }}</p>
+                        </div>
+                        
                     </div>
 
                     <div class="mb-8">
@@ -36,35 +39,56 @@
                     <div class="flex justify-between items-center mt-auto relative self-end">
 
                         @if ($comment->user == auth()->user())
-                            <div x-show="editClosed" x-data class="flex justify-between gap-4">
-                                {{-- Edit icon --}}
-                                <button
-                                @click="
-                                    isOpen=true
-                                    editClosed=false
-                                "
-                                class="rounded-lg p-1 hover:bg-gray-200 transition"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:cursor-pointer text-green-600" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                                        <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
+                            <div x-show="editClosed" x-data="{showMore:false}" class="flex justify-between gap-4">
+
+                                <button 
+                                    @click="showMore=!showMore"
+
+                                    class="bg-gray-100 border rounded-full flex justify-between gap-1" style="padding: 7px 10px;">
+
+                                    <svg style="width: 5px; height: 5px;" class="text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 31.955 31.955">
+                                        
+                                        <path d="M27.25,4.655C20.996-1.571,10.88-1.546,4.656,4.706C-1.571,10.96-1.548,21.076,4.705,27.3
+                                        c6.256,6.226,16.374,6.203,22.597-0.051C33.526,20.995,33.505,10.878,27.25,4.655z"/>
+                                            
+                                    </svg>
+
+                                    <svg style="width: 5px; height: 5px;" class="text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 31.955 31.955">
+                                        
+                                        <path d="M27.25,4.655C20.996-1.571,10.88-1.546,4.656,4.706C-1.571,10.96-1.548,21.076,4.705,27.3
+                                        c6.256,6.226,16.374,6.203,22.597-0.051C33.526,20.995,33.505,10.878,27.25,4.655z"/>
+                                            
+                                    </svg>
+
+                                    <svg style="width: 5px; height: 5px;" class="text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 31.955 31.955">
+                                        
+                                        <path d="M27.25,4.655C20.996-1.571,10.88-1.546,4.656,4.706C-1.571,10.96-1.548,21.076,4.705,27.3
+                                        c6.256,6.226,16.374,6.203,22.597-0.051C33.526,20.995,33.505,10.878,27.25,4.655z"/>
+                                            
                                     </svg>
                                 </button>
-                                
 
-                                {{-- delete icon --}}
-                                <button
-                                @click=
-                                "
-                                editClosed=false
-                                commentDelete=true
-                                "
-                                class="rounded-lg p-1 hover:bg-gray-200 transition"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:cursor-pointer text-red-600" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                    </svg>
-                                </button>  
+                                <div 
+                                x-show="showMore"
+                                @click.away="showMore=false"
+                                class="absolute bottom-0 right-0 w-24 rounded-xl bg-white shadow-dialog flex flex-col py-2 -mr-24 -mb-24 z-50">
+                                    <p
+                                        @click="
+                                        isOpen=true
+                                        editClosed=false
+                                        "
+                                    class="hover:bg-gray-200 hover:cursor-pointer py-2 px-3 font-semibold" href="">Edit</p>
+                                    <p
+                                        @click=
+                                        "
+                                        editClosed=false
+                                        commentDelete=true
+                                        "
+                                    class="hover:bg-gray-200 hover:cursor-pointer  py-2 px-3 font-semibold" href="">Delete</p>
+                                </div>
                             </div>
                         @endif
                     </div>
