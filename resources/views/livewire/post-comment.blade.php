@@ -74,7 +74,7 @@
                                 <div 
                                 x-show="showMore"
                                 @click.away="showMore=false"
-                                class="absolute bottom-0 right-0 w-24 rounded-xl bg-white shadow-dialog flex flex-col py-2 -mr-24 -mb-24 z-50">
+                                class="absolute bottom-0 right-0 w-24 rounded-xl bg-white shadow-dialog flex flex-col py-2 -mr-24 -mb-24 z-50 sm:-mr-0">
                                     <p
                                         @click="
                                         isOpen=true

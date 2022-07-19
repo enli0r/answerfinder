@@ -71,7 +71,7 @@ x-init="window.livewire.on('postWasEdited', () => {
                     <div 
                         x-show="showMore"
                         @click.away="showMore=false"
-                        class="absolute bottom-0 right-0 w-24 rounded-xl bg-white shadow-dialog flex flex-col py-2 -mr-24 -mb-24 z-50">
+                        class="absolute bottom-0 right-0 w-24 rounded-xl bg-white shadow-dialog flex flex-col py-2 z-50 -mr-24 -mb-24 xl:-mr-0">
                             <p
                                 @click=
                                 "
