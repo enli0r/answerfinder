@@ -24,7 +24,6 @@
         @click=
         "
         visible = !visible
-        $dispatch('custom-change-transition')
         "
         class="rounded-xl bg-blue-500 text-white px-5 py-3 mb-6 hover:bg-blue-400 transition z-20 lg:hidden"
     >
@@ -36,7 +35,7 @@
     <div 
         x-cloak
         x-show="visible"
-        x-transition:enter="transition linear duration-300"
+        x-transition:enter="transition linear duration-150"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
         x-transition:leave="transition linear duration-150"
@@ -56,7 +55,7 @@
         x-cloak
         x-show="visible"
         
-        x-transition:enter="transition linear duration-300"
+        x-transition:enter="transition linear duration-150"
         x-transition:enter-start="origin-bottom scale-y-0"
         x-transition:enter-end="origin-bottom scale-y-100"
         x-transition:leave="transition linear duration-150"

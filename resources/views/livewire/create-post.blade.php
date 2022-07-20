@@ -1,5 +1,11 @@
 <div
     x-data="{showCreatePost:false}"
+    x-init=
+    "
+        Livewire.on('postWasCreated', () => {
+            showCreatePost=false;
+        }); 
+    "
 >
 
     {{-- post your question button --}}
@@ -53,7 +59,7 @@
     <div 
         x-cloak
         x-show="showCreatePost"
-        x-transition:enter="transition linear duration-300"
+        x-transition:enter="transition linear duration-150"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
         x-transition:leave="transition linear duration-150"
@@ -72,12 +78,12 @@
         x-cloak
         x-show="showCreatePost"
         
-        x-transition:enter="transition linear duration-300"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
+        x-transition:enter="transition linear duration-150"
+        x-transition:enter-start="origin-bottom scale-y-0"
+        x-transition:enter-end="origin-bottom scale-y-100"
         x-transition:leave="transition linear duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
+        x-transition:leave-start="origin-bottom scale-y-100"
+        x-transition:leave-end="origin-bottom scale-y-0"
         @click.away="showCreatePost = false"
 
         class="fixed top-56 right-5 lg:h-screen left-5 z-30 bg-white rounded-xl p-6 shadow-dialog overflow-y-hidden lgMin:hidden"
