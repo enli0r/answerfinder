@@ -38,7 +38,9 @@
 
 @media (max-width: 639px) {
     .comments::before{
-        display: none;
+        top: -47px;
+        left: 47px;
+        z-index: 0;
     }
 
     .comment::before{

@@ -34,6 +34,10 @@ module.exports = {
                 175: '43.75rem',
             },
             
+            fontSize: {
+                xxs: ['0.625rem', { lineHeight: '1rem' }],
+            },
+            
             boxShadow: {
                 card: '4px 4px 15px 0 rgba(36, 37, 38, 0.08)',
                 dialog: '3px 4px 15px 0 rgba(36, 37, 38, 0.22)',

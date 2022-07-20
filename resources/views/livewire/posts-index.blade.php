@@ -1,8 +1,7 @@
 <div>
     {{-- Filters --}}
     <div x-data='{visible:false}' class="mb-6">
-        <div class="flex justify-start items-baseline mb-2 gap-3 sm:flex-col-reverse">
-
+        <div class="flex justify-start items-baseline mb-2 gap-3">
 
             <div class="flex justify-start items-baseline gap-3 sm:self-end">
                 <div class="relative">

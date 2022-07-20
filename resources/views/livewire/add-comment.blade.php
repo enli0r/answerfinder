@@ -10,7 +10,7 @@
 
     class="relative w-full">
 
-    <div class="reply-button">
+    <div class="reply-button sm:hidden">
         <button
             @click="visible = !visible"
             class="rounded-xl bg-blue-500 text-white px-5 py-3 mb-6 hover:bg-blue-400 transition">Reply</button>

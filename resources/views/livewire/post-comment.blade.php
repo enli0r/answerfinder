@@ -4,39 +4,62 @@
     <div class="comment relative rounded-xl bg-white text-black p-5 mb-6 smMin:ml-24">
         <div class="flex flex-col gap-5">
 
-            <div class="flex gap-5 sm:gap-3">
+            <div class="flex gap-5 sm:gap-3 sm:flex-col-reverse">
                 {{-- vote button and vote count --}}
-                <div class="flex flex-col items-center justify-center mt-auto mb-auto rounded-xl">
+                <div class="flex flex-col items-center justify-center mt-auto mb-auto rounded-xl sm:hidden">
                     <p class="text-center mb-4 mt-1"><span class="block font-semibold text-xl mb-0 @if($hasVoted) text-blue-500 @endif">{{ $votescount }}</span><span class="text-sm text-gray-500">Votes</span></p>
 
                     @if($hasVoted)
-                        <button wire:click='vote()' class="bg-blue-500 text-white font-semibold uppercase text-xs rounded-md px-5 py-3 sm:px-4 sm:py-2">Vote</button>
+                        <button wire:click='vote()' class="bg-blue-500 text-white font-semibold uppercase text-xs rounded-xl px-5 py-3 sm:px-4 sm:py-2 transition duration-150 ease-in-out">Voted</button>
                     @else
-                        <button wire:click='vote()' class="bg-gray-200 text-black font-semibold uppercase text-xs rounded-md px-5 py-3 sm:px-4 sm:py-2">Vote</button>
+                        <button wire:click='vote()' class="bg-gray-200 text-black font-semibold uppercase text-xs rounded-xl px-5 py-3 sm:px-4 sm:py-2 transition duration-150 ease-in-out">Vote</button>
                     @endif
                 </div>
                 {{-- end of voting --}}
-                <div class="h-auto bg-gray-100" style="width: 2px"></div>
+                <div class="h-auto bg-gray-100 sm:hidden" style="width: 2px"></div>
 
                 {{-- comment + user info --}}
-                <div x-show="editClosed" class="w-full flex flex-col">
-
-                    <div class="flex gap-3 items-center mb-3 flex-wrap">
+                <div x-show="editClosed" class="w-full flex flex-col gap-4">
+                    <div class="flex gap-3 items-top">
                         <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt=""
-                        class="block h-8 w-8 rounded-lg hover:cursor-pointer">
+                        class="h-14 w-14 rounded-xl hover:cursor-pointer">
 
-                        <div>
-                            <p class="block text-sm text-blue-500 font-semibold">{{ $comment->user->name }}</p>
-                            <p class="block text-xs text-gray-400 font-semibold">{{ $comment->created_at->diffForHumans() }}</p>
+                        <p class="text-gray-600 @if(str_word_count($comment->body) <= 1) break-all @endif">{{ $comment->body }}</p>
+                    </div>
+
+                    <div class="flex justify-start gap-2 items-center text-xs font-semibold text-gray-400 smMin:hidden">
+                        <p class=" text-gray-900 font-bold">{{ $comment->user->name }}</p>
+                        <p>•</p>
+                        <p>{{ $comment->created_at->diffForHumans() }}</p>
+                    </div>
+
+                    <hr class="w-full h-2 gray-100 smMin:hidden">
+
+                    <div class="flex justify-between items-center mt-auto relative">
+
+                        <div class="flex justify-start gap-2 items-center text-xs font-semibold text-gray-400 sm:hidden">
+                            <p class=" text-gray-900 font-bold">{{ $comment->user->name }}</p>
+                            <p>•</p>
+                            <p>{{ $comment->created_at->diffForHumans() }}</p>
+                        </div>
+
+                        <div class="flex gap-1 border rounded-full pl-3 bg-gray-100 items-center smMin:hidden">
+                            <div class="flex flex-col items-center">
+                                <p class="font-semibold text-sm mb-0 @if($hasVoted) text-blue-500 @endif">{{ $votescount }}</p>
+                                <p class="text-xxs font-semibold leading-none text-gray-400">Votes</p>
+                            </div>
+                            
+                            
+                            @if($hasVoted)
+                                <button wire:click='vote()' class="bg-blue-500 text-white border border-blue-500 font-bold text-xxs uppercase rounded-full transition duration-150 ease-in px-4 py-3">Voted</button>
+                            @else
+                                <button wire:click='vote()' class="bg-gray-200 border border-gray-200 font-bold text-xxs uppercase rounded-full hover:border-gray-400 transition duration-150 ease-in px-4 py-3">Vote</button>
+                            @endif
                         </div>
                         
-                    </div>
 
-                    <div class="mb-8">
-                        <p class="@if(str_word_count($comment->body) <= 1) break-all @endif">{{ $comment->body }}</p>
-                    </div>
 
-                    <div class="flex justify-between items-center mt-auto relative self-end">
+
 
                         @if ($comment->user == auth()->user())
                             <div x-show="editClosed" x-data= class="flex justify-between gap-4">

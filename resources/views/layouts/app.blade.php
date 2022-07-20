@@ -30,35 +30,8 @@
     <body class="font-sans text-sm text-gray-900 bg-gray-background relative">
 
 
-        <header class="container max-w-main mx-auto flex items-center justify-between mb-5 mt-3 lg:px-5 py-">
-            <a href="{{ route('posts.index') }}" class="uppercase text-black text-base font-semibold">answerfinder</a>
-            <div class="flex items-center justify-between">
-                @if (Route::has('login'))
-                    <div class="px-6 py-4">
-                        @auth
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <a href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </a>
-                            </form>
-                        @else
-                            <a href="{{ route('login') }}" class="text-sm text-gray-900 underline">Log in</a>
-
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-900 underline">Register</a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif
-
-                <a href="#">
-                    <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt="xd" class="w-10 h-10 rounded-full">
-                </a>
-            </div>
+        <header class="container max-w-main mx-auto mb-5 mt-3 lg:px-5">
+            <x-navbar />
         </header>
 
         <main class="container flex mx-auto max-w-main lg:px-5 mdMin:gap-5">  
@@ -73,6 +46,7 @@
             </div>
             
         </main>
+
 
         @if (session('message'))
             <x-notification-success :redirect="true" messageToDisplay="{{ session('message') }}"/>

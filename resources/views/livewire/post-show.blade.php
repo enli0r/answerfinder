@@ -7,36 +7,34 @@ x-init="window.livewire.on('postWasEdited', () => {
 >
     <div class="w-full rounded-xl bg-white mb-4 p-5 flex gap-5 sm:flex-col sm:gap-3">
         
-        <div class="flex flex-col gap-2 items-center justify-start shrink-0 sm:flex-row">
+        <div class="flex gap-3 items-top justify-start shrink-0 sm:flex-row">
             <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt=""
-            class="block rounded-xl h-16 w-16 sm:h-8 sm:w-8 sm:rounded-lg">
+            class="block rounded-xl h-14 w-14">
 
-            <div class="smMin:hidden">
-                <p class="block text-sm text-blue-500 font-semibold">{{ $post->user->name }}</p>
-                <p class="block text-xs text-gray-400 font-semibold">{{ $post->created_at->diffForHumans() }}</p>
-            </div>
+            <a class="block font-semibold text-xl smMin:hidden">{{ $post->title }}</a>
         </div>
     
         <div
         x-show="visible"
         class="w-full">
             <div class="mb-8 sm:mb-4">
-                <a class="block font-bold mb-3 text-lg">{{ $post->title }}</a>
-                <p class="sm:line-clamp-5 line-clamp-3  @if(str_word_count($post->description) <= 1) break-all @endif ">{{ $post->description }}</p>
+                <a class="block font-bold mb-3 text-lg sm:hidden">{{ $post->title }}</a>
+                <p class="text-gray-600 sm:line-clamp-5 line-clamp-3  @if(str_word_count($post->description) <= 1) break-all @endif ">{{ $post->description }}</p>
             </div>
             
             <div class="flex justify-between items-center relative">
 
-                <div class="flex gap-3 items-center">
-                    <p class="block text-sm text-blue-500 font-semibold sm:hidden">{{ $post->user->name }}</p>
-                    <p class="sm:hidden text-gray-500 font-semibold">•</p>
-                    <p class="block text-xs text-gray-400 font-semibold sm:hidden">{{ $post->created_at->diffForHumans() }}</p>
-                    <p class="sm:hidden text-gray-500 font-semibold">•</p>
-                    <p class="block text-xs text-gray-900 font-semibold hover:cursor-text">{{ $post->comments->count() }} comments</p>     
+                <div class="flex gap-2 items-center text-gray-400 text-xs font-semibold">
+                    <p class=" text-blue-500 sm:hidden">{{ $post->user->name }}</p>
+                    <p class="sm:hidden">•</p>
+                    <p>{{ $post->created_at->diffForHumans() }}</p>
+                    <p>•</p>
+                    <p class="text-gray-900 hover:cursor-text">{{ $post->comments->count() }} comments</p>     
                 </div>
 
                 @if ($post->user == auth()->user())
 
+                    {{-- Show more button --}}
                     <div class="flex justify-between gap-4">
                         <button 
                         @click="showMore=!showMore"
