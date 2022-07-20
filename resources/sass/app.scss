@@ -36,9 +36,9 @@
     border-bottom-left-radius: 0;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 1023px) {
     .comments::before{
-        top: -47px;
+        top: -63px;
         left: 47px;
         z-index: 0;
     }

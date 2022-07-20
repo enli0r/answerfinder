@@ -22,7 +22,8 @@ module.exports = {
 
         extend: {
             colors: {
-                'gray-background' : '#f7f8fc'
+                'gray-background' : '#f7f8fc',
+                'half-transparent': 'rgba(0,0,0,0.5)',
             },
 
             maxWidth: {
@@ -31,6 +32,7 @@ module.exports = {
             
             spacing: {
                 70: '17.5rem',
+                55: '17rem',
                 175: '43.75rem',
             },
             

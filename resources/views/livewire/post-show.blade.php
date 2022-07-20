@@ -5,28 +5,30 @@ x-init="window.livewire.on('postWasEdited', () => {
     editOpen=false;
 })"
 >
-    <div class="w-full rounded-xl bg-white mb-4 p-5 flex gap-5 sm:flex-col sm:gap-3">
+    <div class="w-full rounded-xl bg-white mb-4 p-5 flex gap-5 lg:flex-col lg:gap-3">
         
-        <div class="flex gap-3 items-top justify-start shrink-0 sm:flex-row">
+        <div 
+            x-show="visible"
+            class="flex gap-3 items-top justify-start shrink-0 lg:flex-row">
             <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt=""
             class="block rounded-xl h-14 w-14">
 
-            <a class="block font-semibold text-xl smMin:hidden">{{ $post->title }}</a>
+            <a class="block font-semibold text-xl lgMin:hidden">{{ $post->title }}</a>
         </div>
     
         <div
         x-show="visible"
         class="w-full">
-            <div class="mb-8 sm:mb-4">
-                <a class="block font-bold mb-3 text-lg sm:hidden">{{ $post->title }}</a>
-                <p class="text-gray-600 sm:line-clamp-5 line-clamp-3  @if(str_word_count($post->description) <= 1) break-all @endif ">{{ $post->description }}</p>
+            <div class="mb-8 lg:mb-4">
+                <a class="block font-bold mb-3 text-lg lg:hidden">{{ $post->title }}</a>
+                <p class="text-gray-600 lg:line-clamp-5 line-clamp-3  @if(str_word_count($post->description) <= 1) break-all @endif ">{{ $post->description }}</p>
             </div>
             
             <div class="flex justify-between items-center relative">
 
                 <div class="flex gap-2 items-center text-gray-400 text-xs font-semibold">
-                    <p class=" text-blue-500 sm:hidden">{{ $post->user->name }}</p>
-                    <p class="sm:hidden">•</p>
+                    <p class="text-sm text-gray-900 lg:hidden">{{ $post->user->name }}</p>
+                    <p class="lg:hidden">•</p>
                     <p>{{ $post->created_at->diffForHumans() }}</p>
                     <p>•</p>
                     <p class="text-gray-900 hover:cursor-text">{{ $post->comments->count() }} comments</p>     
@@ -67,6 +69,7 @@ x-init="window.livewire.on('postWasEdited', () => {
                     </button>
 
                     <div 
+                        x-cloak
                         x-show="showMore"
                         @click.away="showMore=false"
                         class="absolute bottom-0 right-0 w-24 rounded-xl bg-white shadow-dialog flex flex-col py-2 z-50 -mr-24 -mb-24 xl:-mr-0">

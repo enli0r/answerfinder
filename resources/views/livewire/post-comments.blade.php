@@ -1,5 +1,5 @@
 <div>
-    <div class="comments relative sm:mt-12">
+    <div class="comments relative lg:mt-16">
         @foreach ($comments as $comment)
             <livewire:post-comment :key="$comment->id" :comment="$comment"/>
         @endforeach

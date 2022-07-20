@@ -3,7 +3,7 @@
     <div x-data='{visible:false}' class="mb-6">
         <div class="flex justify-start items-baseline mb-2 gap-3">
 
-            <div class="flex justify-start items-baseline gap-3 sm:self-end">
+            <div class="flex justify-start items-baseline gap-3 lg:self-end">
                 <div class="relative">
                     {{-- Newest first/Oldest firstt --}}
                     <button 

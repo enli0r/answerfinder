@@ -36,12 +36,12 @@
 
         <main class="container flex mx-auto max-w-main lg:px-5 mdMin:gap-5">  
 
-            <div class="w-70 rounded-xl bg-white p-6 self-baseline hover:shadow-card md:hidden">
+            <div class="w-70 rounded-xl bg-white p-6 self-baseline hover:shadow-card lg:hidden">
                 <livewire:create-post />
             </div>
 
             
-            <div class="w-175">
+            <div class="w-175 lg:w-full">
                 {{ $slot }}
             </div>
             

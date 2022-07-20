@@ -12,12 +12,12 @@
 
         <button
             @click="dropdown=!dropdown"
-            class="flex items-center p-1 rounded-lg hover:bg-white transition">
-            <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt="xd" class="w-10 h-10 rounded-lg">
+            class="flex items-center gap-1 p-1 rounded-lg hover:bg-white transition">
+            <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt="xd" class="w-8 h-8 rounded-full">
 
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 font-bold" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 font-bold" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd" />
+              </svg>
         </button>
     </div>
 
@@ -26,6 +26,15 @@
         x-cloak
         x-show="dropdown" 
         @click.away="dropdown=false"
+
+        x-transition:enter="transition ease-out duration-150"
+        x-transition:enter-start="origin-top scale-y-0"
+        x-transition:enter-end="origin-top scale-y-100"
+        x-transition:leave="transition ease-out duration-300"
+        x-transition:leave-start="origin-top scale-y-100"
+        x-transition:leave-end="origin-top scale-y-0"
+
+
         class="absolute top-16 right-0 bg-white rounded-lg z-50 py-3 flex flex-col shadow-dialog">
 
         @guest
