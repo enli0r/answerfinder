@@ -9,3 +9,11 @@ $(function(){
         }
     });
 });
+
+$(function(){
+    $('.search-form').on('click', function(){
+        var id= $(this).attr('id');
+        
+        $('#'+id+'-input').focus();
+    })
+})

@@ -71,6 +71,12 @@ x-init="window.livewire.on('postWasEdited', () => {
                     <div 
                         x-cloak
                         x-show="showMore"
+                        x-transition:enter="transition linear duration-150"
+                        x-transition:enter-start="opacity-0"
+                        x-transition:enter-end="opacity-100"
+                        x-transition:leave="transition linear duration-150"
+                        x-transition:leave-start="opacity-100"
+                        x-transition:leave-end="opacity-0"
                         @click.away="showMore=false"
                         class="absolute bottom-0 right-0 w-24 rounded-xl bg-white shadow-dialog flex flex-col py-2 z-50 -mr-24 -mb-24 xl:-mr-0">
                             <p
