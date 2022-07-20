@@ -98,7 +98,7 @@
                                 x-cloak
                                 x-show="showMore"
                                 @click.away="showMore=false"
-                                class="absolute bottom-0 right-0 w-24 rounded-xl bg-white shadow-dialog flex flex-col py-2 -mr-24 -mb-24 z-50 lg:-mr-0">
+                                class="absolute bottom-0 right-0 w-24 rounded-xl bg-white shadow-dialog flex flex-col py-2 -mr-24 -mb-24 z-50 xl:-mr-0">
                                     <p
                                         @click="
                                         isOpen=true

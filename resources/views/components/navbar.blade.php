@@ -35,7 +35,7 @@
         x-transition:leave-end="origin-top scale-y-0"
 
 
-        class="absolute top-16 right-0 bg-white rounded-lg z-50 py-3 flex flex-col shadow-dialog">
+        class="absolute top-12 right-0 bg-white rounded-lg z-50 py-3 flex flex-col shadow-card border">
 
         @guest
             @if (Route::has('register'))
