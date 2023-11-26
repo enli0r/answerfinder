@@ -25,7 +25,7 @@
         "
         visible = !visible
         "
-        class="rounded-xl bg-blue-500 text-white px-5 py-3 mb-6 hover:bg-blue-400 transition z-20 lg:hidden"
+        class="rounded-2xl bg-blue-500 text-white px-5 py-3 mb-6 hover:bg-blue-400 transition z-20 lg:hidden"
     >
         Reply
     </button>
@@ -35,7 +35,7 @@
     <div 
         x-cloak
         x-show="visible"
-        x-transition:enter="transition linear duration-150"
+        x-transition:enter="transition linear duration-300"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
         x-transition:leave="transition linear duration-150"
@@ -55,7 +55,7 @@
         x-cloak
         x-show="visible"
         
-        x-transition:enter="transition linear duration-150"
+        x-transition:enter="transition linear duration-300"
         x-transition:enter-start="origin-bottom scale-y-0"
         x-transition:enter-end="origin-bottom scale-y-100"
         x-transition:leave="transition linear duration-150"
@@ -85,13 +85,13 @@
         @auth
             <form wire:submit.prevent='addComment' action="#" method="POST">
                 @csrf
-                <textarea name="body" id="body" wire:model.difer="body" class="rounded-xl border-none bg-gray-100 w-full text-sm text-black mb-2" rows="7" name="" id="" placeholder="Tell us what you think" style="resize: none;"></textarea>
+                <textarea name="body" id="body" wire:model.difer="body" class="rounded-2xl border-none bg-gray-100 w-full text-sm text-black mb-2" rows="7" name="" id="" placeholder="Tell us what you think" style="resize: none;"></textarea>
                 @error('body')
                     <small class="block text-red-500 font-semibold mb-2">*{{ $message }}</small>
                 @enderror 
 
                 <div class="flex justify-end mt-3">
-                    <button class="rounded-xl bg-blue-500 text-white px-5 py-3 hover:bg-blue-400 transition lg:rounded-full lg:text-xs lg:uppercase sm:font-semibold" type="submit">Post comment</button>
+                    <button class="rounded-2xl bg-blue-500 text-white px-5 py-3 hover:bg-blue-400 transition lg:rounded-full lg:text-xs lg:uppercase sm:font-semibold" type="submit">Post comment</button>
                 </div>
                 
             </form>
@@ -99,8 +99,8 @@
 
         @guest
             <div class="flex justify-center gap-3 text-center">
-                <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-blue-400">Log in</a>
-                <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-gray-100">Sign up</a>
+                <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-2xl px-4 py-3 flex-1 hover:bg-blue-400">Log in</a>
+                <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-2xl px-4 py-3 flex-1 hover:bg-gray-100">Sign up</a>
             </div>
         @endguest
     </div>
@@ -138,13 +138,13 @@
         @auth
             <form wire:submit.prevent='addComment' action="#" method="POST">
                 @csrf
-                <textarea name="body" id="body" wire:model.difer="body" class="rounded-xl border-none bg-gray-100 w-full text-sm text-black mb-2" rows="7" name="" id="" placeholder="Tell us what you think" style="resize: none;"></textarea>
+                <textarea name="body" id="body" wire:model.difer="body" class="rounded-2xl border-none bg-gray-100 w-full text-sm text-black mb-2" rows="7" name="" id="" placeholder="Tell us what you think" style="resize: none;"></textarea>
                 @error('body')
                     <small class="block text-red-500 font-semibold mb-2">*{{ $message }}</small>
                 @enderror 
 
                 <div class="flex justify-end mt-3">
-                    <button class="rounded-xl bg-blue-500 text-white px-5 py-3 hover:bg-blue-400 transition lg:rounded-full lg:text-xs lg:uppercase sm:font-semibold" type="submit">Post comment</button>
+                    <button class="rounded-2xl bg-blue-500 text-white px-5 py-3 hover:bg-blue-400 transition lg:rounded-full lg:text-xs lg:uppercase sm:font-semibold" type="submit">Post comment</button>
                 </div>
                 
             </form>
@@ -154,8 +154,8 @@
             <p class="text-sm font-semibold mb-4 lg:text-center text-gray-600">Please login to be able to comment on posts!</p>
 
             <div class="flex justify-center gap-3 text-center">
-                <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-blue-400">Log in</a>
-                <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-gray-100">Sign up</a>
+                <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-2xl px-4 py-3 flex-1 hover:bg-blue-400">Log in</a>
+                <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-2xl px-4 py-3 flex-1 hover:bg-gray-100">Sign up</a>
             </div>
         @endguest
     </div>

@@ -2,7 +2,7 @@
     x-data="{dropdown:false}"
     class="navbar flex items-center justify-between relative">
 
-    <a href="{{ route('posts.index') }}" class="uppercase text-black text-base font-semibold">answerfinder</a>
+    <a href="{{ route('posts.index') }}" class="uppercase text-gray-900 text-3xl font-bold">answerfinder</a>
     <div class="flex items-center justify-between">
         @if (Route::has('login'))
             <div class="px-6 py-4">

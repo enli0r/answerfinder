@@ -21,7 +21,7 @@
 
 
     {{-- Create post for pc --}}
-    <div class="rounded-xl bg-white p-6 self-baseline hover:shadow-card lg:hidden">
+    <div class="rounded-2xl bg-white p-6 self-baseline hover:shadow-card lg:hidden hover:cursor-pointer">
         <div class="text-center">
             <h4 class="text-lg font-bold mb-3">Ask a question</h4>
             <p class="text-xs mb-8">Find the answer you are looking for!</p>
@@ -31,26 +31,26 @@
             <form wire:submit.prevent="submit" action="#" method="POST" class="flex flex-col gap-3">
                 @csrf
     
-                <input wire:model.defer="title" type="text" class="rounded-xl border-none bg-gray-100 text-black text-sm w-full" placeholder="Title">
+                <input wire:model.defer="title" type="text" class="rounded-2xl border-none bg-gray-100 text-black text-sm w-full" placeholder="Title">
                 @error('title')
                     <small class="text-red-500 font-semibold">*{{ $message }}</small>
                 @enderror 
     
-                <textarea wire:model.defer="description" type="text" class="rounded-xl border-none bg-gray-100 text-black text-sm w-full" placeholder="Description" rows="5" style="resize: none;"></textarea>
+                <textarea wire:model.defer="description" type="text" class="rounded-2xl border-none bg-gray-100 text-black text-sm w-full" placeholder="Description" rows="5" style="resize: none;"></textarea>
                 @error('description')
                     <small class="text-red-500 font-semibold">*{{ $message }}</small>
                 @enderror 
     
                 <div class="flex justify-end">
-                    <button type="submit" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 hover:bg-blue-400 transition">Submit</button>
+                    <button type="submit" class="bg-blue-500 text-white text-md font-semibold pointer rounded-2xl px-4 py-3 hover:bg-blue-400 transition">Submit</button>
                 </div>
             </form>
         @endauth
     
         @guest
         <div class="flex justify-center gap-3 text-center">
-            <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-blue-400">Log in</a>
-            <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-gray-100">Sign up</a>
+            <a href="{{ route('login') }}" class="text-white bg-blue-500 text-md font-semibold pointer rounded-2xl px-4 py-3 flex-1 hover:bg-blue-400 border-red-500">Log in</a>
+            <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-2xl px-4 py-3 flex-1 hover:bg-gray-100">Sign up</a>
         </div>
         @endguest
     </div>
@@ -59,7 +59,7 @@
     <div 
         x-cloak
         x-show="showCreatePost"
-        x-transition:enter="transition linear duration-150"
+        x-transition:enter="transition linear duration-300"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
         x-transition:leave="transition linear duration-150"
@@ -78,7 +78,7 @@
         x-cloak
         x-show="showCreatePost"
         
-        x-transition:enter="transition linear duration-150"
+        x-transition:enter="transition linear duration-300"
         x-transition:enter-start="origin-bottom scale-y-0"
         x-transition:enter-end="origin-bottom scale-y-100"
         x-transition:leave="transition linear duration-150"
@@ -86,7 +86,7 @@
         x-transition:leave-end="origin-bottom scale-y-0"
         @click.away="showCreatePost = false"
 
-        class="fixed top-56 right-5 lg:h-screen left-5 z-30 bg-white rounded-xl p-6 shadow-dialog overflow-y-hidden lgMin:hidden"
+        class="fixed top-56 right-5 lg:h-screen left-5 z-30 bg-white rounded-2xl p-6 shadow-dialog lgMin:hidden"
     >
         <div class="flex w-full justify-end relative">
             <button
@@ -109,12 +109,12 @@
             <form wire:submit.prevent="submit" action="#" method="POST" class="space-y-3">
                 @csrf
     
-                <input wire:model.defer="title" type="text" class="rounded-xl border border-white bg-gray-100 text-black text-sm w-full" placeholder="Title">
+                <input wire:model.defer="title" type="text" class="rounded-2xl border border-white bg-gray-100 text-black text-sm w-full" placeholder="Title">
                 @error('title')
                     <small class="text-red-500 font-semibold">*{{ $message }}</small>
                 @enderror 
     
-                <textarea wire:model.defer="description" type="text" class="rounded-xl border-none bg-gray-100 text-black text-sm w-full" placeholder="Description" rows="5" style="resize: none;"></textarea>
+                <textarea wire:model.defer="description" type="text" class="rounded-2xl border-none bg-gray-100 text-black text-sm w-full" placeholder="Description" rows="5" style="resize: none;"></textarea>
                 @error('description')
                     <small class="text-red-500 font-semibold">*{{ $message }}</small>
                 @enderror 
@@ -125,8 +125,8 @@
     
         @guest
         <div class="flex justify-center gap-3 text-center">
-            <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-blue-400">Log in</a>
-            <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-xl px-4 py-3 flex-1 hover:bg-gray-100">Sign up</a>
+            <a href="{{ route('login') }}" class="bg-blue-500 text-white text-md font-semibold pointer rounded-2xl px-4 py-3 flex-1 hover:bg-blue-400">Log in</a>
+            <a href="{{ route('register') }}" class="bg-gray-200 text-black text-md font-semibold pointer rounded-2xl px-4 py-3 flex-1 hover:bg-gray-100">Sign up</a>
         </div>
         @endguest
     </div>

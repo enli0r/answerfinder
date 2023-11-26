@@ -24,6 +24,7 @@ module.exports = {
             colors: {
                 'gray-background' : '#f7f8fc',
                 'half-transparent': 'rgba(0,0,0,0.5)',
+                
             },
 
             maxWidth: {
@@ -57,6 +58,13 @@ module.exports = {
                 'lgMin': '1024px',
 
                 'xlMin': '1280px'
+            },
+            borderRadius: {
+                '2xl': '1rem'
+            },
+
+            borderWidth: {
+                '3' : '3px'
             }
         },
     },

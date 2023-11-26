@@ -3,12 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\Comment;
+use App\Models\Post;
 use App\Models\Vote;
 use Livewire\Component;
 
 class PostComment extends Component
 {
     public $comment;
+    public $post;
     public $hasVoted;
 
     protected $listeners = ['commentWasEdited'];
@@ -17,8 +19,9 @@ class PostComment extends Component
         $this->comment->refresh();
     }
 
-    public function mount(Comment $comment){
+    public function mount(Comment $comment, Post $post){
         $this->comment = $comment;
+        $this->post = $post;
         $this->hasVoted = $comment->isVotedByUser(auth()->user()); //function in comment model
     }
 

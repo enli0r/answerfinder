@@ -12,7 +12,7 @@
                     
                     @click='visible = !visible' 
                     @click.away='visible = false'
-                    class="text-sm rounded-md bg-white font-semibold hover:cursor-pointer border-none py-3 px-5">
+                    class="text-sm rounded-2xl bg-white font-semibold hover:cursor-pointer border-none py-3 px-5">
     
                         @if ($sortDirection == 'asc')
                             Oldest first
@@ -42,7 +42,7 @@
                 </div>
     
                 {{-- Other filter button --}}
-                <button class="text-sm rounded-md bg-white font-semibold hover:cursor-pointer border-none py-3 px-5">
+                <button class="text-sm rounded-2xl bg-white font-semibold hover:cursor-pointer border-none py-3 px-5">
                     Filter
                     <i class="fa-solid fa-angle-down ml-1"></i>
                 </button>
@@ -60,10 +60,10 @@
                     @csrf
 
                     <div class="relative">
-                        <input wire:model="search" type="search" class="search-form-input rounded-lg bg-white text-black border-none text-sm py-3 pl-12 placeholder-gray-900 w-full" style="border-color: #e5e7eb" placeholder="Search" id="pc-search-input">
+                        <input wire:model="search" type="search" class="search-form-input rounded-2xl bg-white text-black border-none text-sm py-3 pl-12 placeholder-gray-900 w-full placeholder:font-semibold" style="border-color: #e5e7eb" placeholder="Search" id="pc-search-input">
 
                         <div class="absolute ml-5" style="left:0; top:50%; transform:translateY(-50%)">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
@@ -75,7 +75,7 @@
                     @csrf
 
                     <div class="relative">
-                        <input wire:model="search" type="search" class="search-form-input rounded-lg bg-white text-black border-none text-sm py-3 placeholder-gray-900 w-full" style="border-color: #e5e7eb" id="phone-search-input">
+                        <input wire:model="search" type="search" class="search-form-input rounded-2xl bg-white text-black border-none text-sm py-3 placeholder-gray-900 w-full" style="border-color: #e5e7eb" id="phone-search-input">
 
                         <div 
                         x-show="!fullSearch"

@@ -50,7 +50,7 @@
 
 
 
-    class="fixed z-50 right-0 bottom-0 rounded-xl bg-white p-5 mb-5 mr-5"
+    class="fixed z-50 right-0 bottom-0 rounded-xl bg-white p-5 mb-5 mr-5 shadow-dialog"
 
 >
     <div class="w-full flex justify-between items-center">

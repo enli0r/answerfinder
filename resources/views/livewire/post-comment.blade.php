@@ -10,9 +10,9 @@
                     <p class="text-center mb-4 mt-1"><span class="block font-semibold text-xl mb-0 @if($hasVoted) text-blue-500 @endif">{{ $votescount }}</span><span class="text-sm text-gray-500">Votes</span></p>
 
                     @if($hasVoted)
-                        <button wire:click='vote()' class="bg-blue-500 text-white font-semibold uppercase text-xs rounded-xl px-5 py-3 lg:px-4 lg:py-2 transition duration-150 ease-in-out">Voted</button>
+                        <button wire:click='vote()' class="bg-blue-500 text-white font-semibold uppercase text-xs rounded-2xl px-5 py-3 lg:px-4 lg:py-2 transition duration-150 ease-in-out">Voted</button>
                     @else
-                        <button wire:click='vote()' class="bg-gray-200 text-black font-semibold uppercase text-xs rounded-xl px-5 py-3 lg:px-4 lg:py-2 transition duration-150 ease-in-out">Vote</button>
+                        <button wire:click='vote()' class="bg-gray-200 text-black font-semibold uppercase text-xs rounded-2xl px-5 py-3 lg:px-4 lg:py-2 transition duration-150 ease-in-out">Vote</button>
                     @endif
                 </div>
                 {{-- end of voting --}}
@@ -21,14 +21,23 @@
                 {{-- comment + user info --}}
                 <div x-show="editClosed" class="w-full flex flex-col gap-4">
                     <div class="flex gap-3 items-top">
-                        <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt=""
-                        class="h-14 w-14 rounded-xl hover:cursor-pointer">
+                        
+                        <div class="w-14 shrink-0">
+                            <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg" alt=""
+                            class="w-full h-14 rounded-xl hover:cursor-pointer">
+
+                            {{-- @if ($comment->user_id == $post->user_id)
+                                <p class="block  text-blue-500 font-bold text-xs uppercase text-center mt-1">creator</p>
+                            @endif --}}
+                        </div>
+
+                        
 
                         <p class="text-gray-600 @if(str_word_count($comment->body) <= 1) break-all @endif">{{ $comment->body }}</p>
                     </div>
 
                     <div class="flex justify-start gap-2 items-center text-xs font-semibold text-gray-400 lgMin:hidden">
-                        <p class="text-sm text-gray-900">{{ $comment->user->name }}</p>
+                        <p class="text-sm text-gray-900 ">{{ $comment->user->name }} @if($comment->user_id == $post->user_id) <span class="text-blue-500 font-semibold">(Author)</span> @endif</p>
                         <p>•</p>
                         <p>{{ $comment->created_at->diffForHumans() }}</p>
                     </div>
@@ -38,7 +47,7 @@
                     <div class="flex justify-between items-center mt-auto relative">
 
                         <div class="flex justify-start gap-2 items-center text-xs font-semibold text-gray-400 lg:hidden">
-                            <p class="text-sm text-gray-900">{{ $comment->user->name }}</p>
+                            <p class="text-sm text-gray-900">{{ $comment->user->name }} @if($comment->user_id == $post->user_id) <span class="text-blue-500 font-semibold">(Author)</span> @endif</p>
                             <p>•</p>
                             <p>{{ $comment->created_at->diffForHumans() }}</p>
                         </div>
